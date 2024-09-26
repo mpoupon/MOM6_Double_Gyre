@@ -1,1 +1,1 @@
-# MOM6_Double_Gyre
+# MOM6 Double Gyre
