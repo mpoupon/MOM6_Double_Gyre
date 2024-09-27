@@ -13,7 +13,7 @@ https://doi.org/10.1029/2019MS001726)) and the biogeochemical module can be used
 
 Each directory has a similar structure:
 
-- `ice_ocean_SIS2/OM4_DG_COBALT`: Contains the double-gyre configuration ([see below](#ice_ocean_sis2om4_dg_cobalt-structure) for details).
+- `ice_ocean_SIS2/OM4_DG_COBALT`: Contains the double-gyre configuration ([see below](#ice_ocean_sis2om4_dg_cobalt-description)).
 - `src`: Source code. The physical model is located in `src/MOM6` and the biogeochemical model in `src/ocean_BGC/generic_tracers/generic_COBALT.F90`
 - `compile_mom6.sh`: Bash script for compiling source code.
 - `stellar-amd.mk`and `tigercpu-intel.mk`: Makefiles for automated compilation of source code. Depending on your processors, you can use one of these two files by changing the filename on line 31 in `compile_mom6.sh` (`MKF_TEMPLATE=‘$BASEDIR/filename’`).
@@ -71,7 +71,7 @@ $ sbatch slurmjob resetwoa
 $ sbatch slurmjob resetyear
 ```
 
-## `ice_ocean_sis2/OM4_DG_COBALT` structure:
+## `ice_ocean_sis2/OM4_DG_COBALT` description:
 
 #### `./INPUT/`
 Folder where all input files are added.
