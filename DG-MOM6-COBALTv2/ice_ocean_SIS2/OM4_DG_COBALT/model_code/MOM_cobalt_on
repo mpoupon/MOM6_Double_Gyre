@@ -1,0 +1,20 @@
+! Parameter options when running double gyre with COBALT.
+! Moved out of MOM_input
+! === module MOM_tracer_flow_control ===
+USE_generic_tracer = True       !   [Boolean] default = False
+                                ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
+                                ! MOM_generic_tracer packages.
+                                
+! === module MOM_diabatic_aux ===
+VAR_PEN_SW = True               !   [Boolean] default = False !liao true if from chl file or chl cobalt
+                                ! If true, use one of the CHL_A schemes specified by OPACITY_SCHEME to determine
+                                ! the e-folding depth of incoming short wave radiation.
+                                
+! === module MOM_opacity ===
+PEN_SW_NBANDS = 3               ! default = 1
+                                ! The number of bands of penetrating shortwave radiation.
+PEN_SW_ABSORB_MINTHICK = 1      !   [m] default = 0.001 liao change from 0.001 to 1
+                                ! A thickness that is used to absorb the remaining penetrating shortwave heat
+                                ! flux when it drops below PEN_SW_FLUX_ABSORB.
+CHL_FROM_FILE = False           !   [Boolean] default = True 
+                                ! If true, chl_a is read from a file.

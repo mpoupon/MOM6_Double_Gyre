@@ -1,0 +1,594 @@
+# specific humidity for moist runs
+ "TRACER", "atmos_mod", "sphum" 
+           "longname",     "specific humidity"
+           "units",        "kg/kg" /
+##	   "profile_type", "fixed", "surface_value=3.e-6" /
+# prognostic cloud scheme tracers
+  "TRACER", "atmos_mod", "liq_wat"
+            "longname",     "cloud liquid specific humidity"
+            "units",        "kg/kg" /
+  "TRACER", "atmos_mod", "ice_wat"
+            "longname",     "cloud ice water specific humidity"
+            "units",        "kg/kg" /
+  "TRACER", "atmos_mod", "cld_amt"
+            "longname",     "cloud fraction"
+            "units",        "none" /
+# sphum must be present on land as well
+ "TRACER", "land_mod",     "sphum"
+           "longname",     "specific humidity"
+           "units",        "kg/kg" /
+# no switch to turn on do_esm_nitrogen_flux 
+# "TRACER", "land_mod",     "nh4"
+# "longname",     "nh4"
+#           "units",        "NA" /
+# "TRACER", "land_mod",     "hno3"
+#           "longname",     "hno3"
+#           "units",        "NA" /
+# test tracer for radon
+#
+# "TRACER", "atmos_mod", "radon"
+#           "longname",     "radon test tracer"
+#           "units",        "kg/kg" /      
+###.................................................
+####.................................................
+### COBALT field table for initializing tracers
+## jgj 2013/01/23 updated for COBALT
+
+"namelists","ocean_mod","generic_cobalt/*global*"
+/
+
+"namelists","ocean_mod","generic_cobalt"
+
+init = f
+# JGJ 2015/07/28
+# field table entries for initialization of cobalt tracers
+# all unit conversions will be specified in the code based on
+# valid src_var_unit and internal model unit.
+# If field table src_var_unit does not match valid src_var_unit
+# in code, model will give fatal error.
+# valid src_var_units:
+#    NO3, PO4, SiO4    : micromoles_per_liter
+#    O2                : milliliters_per_liter
+#    DIC, ALK          : micromoles_per_kg
+#    all other fields  : none
+# valid src_var_record : 0-12, where 0 is Annual, 1-12 for Jan-Dec
+# 2015/10/05: Use annual data for WOA13 N, P, Si, O2 since monthly data does not extend to depth
+# airsea and ice_ocean fluxes are handled by coupler, so are initialized in COBALT.
+# 
+# 2015/09/28 jgj updated to provide valid_min, valid_max for tracers to ensure
+# tracers remain positive after interpolation
+# note that values of valid_min and valid_max are in model units not src_units
+# currently only alk, dic and htotal have both a valid_min and valid_max
+# specified in field_table, but valid_max is ignored for now by code.
+# as of 2015/10/06 src_var_record and src_var_gridspec are not yet implemented
+#
+# 2015/10/14 change valid_min for alk and dic to 0 since land values get filled with valid_min
+#            also remove valid_max for alk and dic
+#
+#------------------------------------------------------------------------------------------------
+#
+# NO3 from WOA2013  (/archive/mdteam/obs/NOAA-NODC/WOA13/v1.00a/woa13_all_n_annual_01.nc)
+# min = 0, max = 65.08 from input dataset
+# divide by 1035e3 to convert from umol/l to mol/kg
+# no3_src_file = INPUT/woa13_all_n_annual_01.nc  # Liao
+no3_src_file = INPUT/DG_init_file.nc  
+no3_src_var_name = no3
+no3_src_var_unit = none
+no3_dest_var_name =  no3
+no3_dest_var_unit = mol kg-1
+no3_src_var_record = 1
+no3_src_var_gridspec = NONE
+no3_valid_min = 0.0
+#
+# O2 from WOA2013  (/archive/mdteam/obs/NOAA-NODC/WOA13/v1.00a/woa13_all_o_annual_01.nc)
+# min = 0, max = 15.44 from input dataset
+# multiply by (1000/22391.6)/1035 to convert from ml/l to mol/kg
+# o2_src_file = INPUT/woa13_all_o_annual_01.nc  # Liao
+o2_src_file = INPUT/DG_init_file.nc  
+o2_src_var_name = o2
+o2_src_var_unit = none
+o2_dest_var_name =  o2
+o2_dest_var_unit = mol kg-1
+o2_src_var_record = 1
+o2_src_var_gridspec = NONE
+o2_valid_min = 0.0
+#
+# PO4 from WOA2013  (/archive/mdteam/obs/NOAA-NODC/WOA13/v1.00a/woa13_all_p_annual_01.nc)
+# min = 0, max = 9.757 from input dataset
+# divide by 1035e3 to convert from umol/l to mol/kg
+# po4_src_file = INPUT/woa13_all_p_annual_01.nc  # Liao
+po4_src_file = INPUT/DG_init_file.nc  
+po4_src_var_name = po4
+po4_src_var_unit = none
+po4_dest_var_name =  po4
+po4_dest_var_unit = mol kg-1
+po4_src_var_record = 1
+po4_src_var_gridspec = NONE
+po4_valid_min = 0.0
+#
+# SIO4 from WOA2013  (/archive/mdteam/obs/NOAA-NODC/WOA13/v1.00a/woa13_all_i_annual_01.nc)
+# min = 0, max = 267.3 from input dataset
+# divide by 1035e3 to convert from umol/l to mol/kg
+# sio4_src_file = INPUT/woa13_all_i_annual_01.nc  # Liao
+sio4_src_file = INPUT/DG_init_file.nc  
+sio4_src_var_name = sio4
+sio4_src_var_unit = none
+sio4_dest_var_name =  sio4
+sio4_dest_var_unit = mol kg-1
+sio4_src_var_record = 1
+sio4_src_var_gridspec = NONE
+sio4_valid_min = 0.0
+#
+# Alkalinity from GLODAP  (/archive/jgj/datasets/retrospective/glodap/20151013/Alk.nc)
+# min = 2171, max = 2462 from input dataset
+# divide by 1e6 to convert from umol/kg to mol/kg; 
+# change to v2 version by enhui liao
+#alk_src_file = INPUT/TAlk_v2.nc
+#alk_src_file = INPUT/GLODAPv2.2016b.oi-filled.20180322.nc
+alk_src_file = INPUT/DG_init_file.nc  
+alk_src_var_name = alk
+alk_src_var_unit = none
+alk_dest_var_name = alk
+alk_dest_var_unit = mol kg-1
+alk_src_var_record = 1
+alk_src_var_gridspec = NONE
+alk_valid_min = 0.0
+#
+# 1990 DIC from GLODAP  (/archive/jgj/datasets/retrospective/glodap/20151013/TCO2.nc)
+# min = 1837, max = 2406 from input dataset
+# divide by 1e6 to convert from umol/kg to mol/kg 
+# change to v2 version and correct to 1958 year dic concentration according to Khatiwala_DIC_inversion.mat
+# dic_src_file = INPUT/TCO2_v2_correct_to_1958.nc  # Liao
+#dic_src_file = INPUT/GLODAPv2.2016b.oi-filled.20180322.nc
+dic_src_file = INPUT/DG_init_file.nc  
+dic_src_var_name = dic
+dic_src_var_unit = none
+dic_dest_var_name = dic
+dic_dest_var_unit = mol kg-1
+dic_src_var_record = 1
+dic_src_var_gridspec = NONE
+dic_valid_min = 0.0
+#
+# in the new esm4, the new additional tracers are from: ESM4p-COBALT Preindustrial Control history file, cobalt_tracer_source.nc, liao
+# old version the additional tracers were from ESM2M-COBALT Preindustrial Control restart (/archive/jgj/datasets/retrospective/mom4p1_restart_to_latlon_360x180/ESM2M_pi-control_C2_cobalt_latlon_360x180_15010101_nobounds_mumem_htotalbounds.ocean_cobalt.res.nc)
+### JCG ###
+# Below, replaced all init_ocean_cobalt.res.nc with DG_spinup_Y2490_TStracers_1deg.nc
+#
+# min =  -2.203E-14, max =  1.347E-08 from input dataset
+# no unit conversion necessary
+cadet_arag_src_file = INPUT/DG_init_file.nc  
+cadet_arag_src_var_name = cadet_arag
+cadet_arag_src_var_unit = none
+cadet_arag_dest_var_name =  cadet_arag
+cadet_arag_dest_var_unit = mol kg-1
+cadet_arag_src_var_record = 1
+cadet_arag_src_var_gridspec = NONE
+cadet_arag_valid_min = 0.0
+#
+# min = -1.774E-15, max =  1.711E-08 from input dataset
+cadet_calc_src_file = INPUT/DG_init_file.nc  
+cadet_calc_src_var_name = cadet_calc
+cadet_calc_src_var_unit = none
+cadet_calc_dest_var_name =  cadet_calc
+cadet_calc_dest_var_unit = mol kg-1
+cadet_calc_src_var_record = 1
+cadet_calc_src_var_gridspec = NONE
+cadet_calc_valid_min = 0.0
+#
+# NOTE: CASED = 0 at all K except K=1 from input dataset
+# min = 0,  max = 5273. from input dataset
+cased_src_file = INPUT/DG_init_file.nc  
+cased_src_var_name = cased
+cased_src_var_unit = none
+cased_dest_var_name =  cased
+cased_dest_var_unit = mol kg-1
+cased_src_var_record = 1
+cased_src_var_gridspec = NONE
+cased_valid_min = 0.0
+#
+# min = 0,  max = 4.446 from input dataset
+chl_src_file = INPUT/DG_init_file.nc  
+chl_src_var_name = chl
+chl_src_var_unit = none
+chl_dest_var_name =  chl
+chl_dest_var_unit = mol kg-1
+chl_src_var_record = 1
+chl_src_var_gridspec = NONE
+chl_valid_min = 0.0
+#
+# min = 0,  max = 3.576E-04 from input dataset
+co3_ion_src_file = INPUT/DG_init_file.nc  
+co3_ion_src_var_name = co3_ion
+co3_ion_src_var_unit = none
+co3_ion_dest_var_name =  co3_ion
+co3_ion_dest_var_unit = mol kg-1
+co3_ion_src_var_record = 1
+co3_ion_src_var_gridspec = NONE
+co3_ion_valid_min = 0.0
+#
+# min = -1.758E-11,  max = 1.758E-08 from input dataset
+fed_src_file = INPUT/DG_init_file.nc  
+fed_src_var_name = fed
+fed_src_var_unit = none
+fed_dest_var_name =  fed
+fed_dest_var_unit = mol kg-1
+fed_src_var_record = 1
+fed_src_var_gridspec = NONE
+fed_valid_min = 0.0
+#
+# min = 0,  max = 1.715E-11 from input dataset
+fedi_src_file = INPUT/DG_init_file.nc  
+fedi_src_var_name = fedi
+fedi_src_var_unit = none
+fedi_dest_var_name =  fedi
+fedi_dest_var_unit = mol kg-1
+fedi_src_var_record = 1
+fedi_src_var_gridspec = NONE
+fedi_valid_min = 0.0
+#
+# min = 0,  max = 4.724E-11 from input dataset
+felg_src_file = INPUT/DG_init_file.nc  
+felg_src_var_name = felg
+felg_src_var_unit = none
+felg_dest_var_name =  felg
+felg_dest_var_unit = mol kg-1
+felg_src_var_record = 1
+felg_src_var_gridspec = NONE
+felg_valid_min = 0.0
+#
+# min = 0,  max = 7.912E-11 from input dataset
+fesm_src_file = INPUT/DG_init_file.nc  
+fesm_src_var_name = fesm
+fesm_src_var_unit = none
+fesm_dest_var_name =  fesm
+fesm_dest_var_unit = mol kg-1
+fesm_src_var_record = 1
+fesm_src_var_gridspec = NONE
+fesm_valid_min = 0.0
+#
+# min = 10^-8.4=3.981E-09,  max = 10^-7.9 = 1.259E-08 from input dataset
+htotal_src_file = INPUT/DG_init_file.nc  
+htotal_src_var_name = htotal
+htotal_src_var_unit = none
+htotal_dest_var_name =  htotal
+htotal_dest_var_unit = mol kg-1
+htotal_src_var_record = 1
+htotal_src_var_gridspec = NONE
+htotal_valid_min = 3.981E-09
+htotal_valid_max = 1.259E-08
+#
+# min = 0,  max = 137.7 from input dataset
+irr_mem_src_file = INPUT/DG_init_file.nc  
+irr_mem_src_var_name = irr_mem
+irr_mem_src_var_unit = none
+irr_mem_dest_var_name =  irr_mem
+irr_mem_dest_var_unit = mol kg-1
+irr_mem_src_var_record = 1
+irr_mem_src_var_gridspec = NONE
+irr_mem_valid_min = 0.0
+#
+# min = 0,  max = 5.812E-07 from input dataset
+ldon_src_file = INPUT/DG_init_file.nc  
+ldon_src_var_name = ldon
+ldon_src_var_unit = none
+ldon_dest_var_name =  ldon
+ldon_dest_var_unit = mol kg-1
+ldon_src_var_record = 1
+ldon_src_var_gridspec = NONE
+ldon_valid_min = 0.0
+#
+# min = 0,  max = 3.576E-08 from input dataset
+ldop_src_file = INPUT/DG_init_file.nc  
+ldop_src_var_name = ldop
+ldop_src_var_unit = none
+ldop_dest_var_name =  ldop
+ldop_dest_var_unit = mol kg-1
+ldop_src_var_record = 1
+ldop_src_var_gridspec = NONE
+ldop_valid_min = 0.0
+#
+# min = 0,  max = 0.006529 from input dataset
+lith_src_file = INPUT/DG_init_file.nc  
+lith_src_var_name = lith
+lith_src_var_unit = none
+lith_dest_var_name =  lith
+lith_dest_var_unit = mol kg-1
+lith_src_var_record = 1
+lith_src_var_gridspec = NONE
+lith_valid_min = 0.0
+#
+# min = -1.385E-11,  max = 8.246E-06 from input dataset
+nh4_src_file = INPUT/DG_init_file.nc  
+nh4_src_var_name = nh4
+nh4_src_var_unit = none
+nh4_dest_var_name =  nh4
+nh4_dest_var_unit = mol kg-1
+nh4_src_var_record = 1
+nh4_src_var_gridspec = NONE
+nh4_valid_min = 0.0
+#
+# min = -2.922E-11,  max = 9.184E-07 from input dataset
+nbact_src_file = INPUT/DG_init_file.nc  
+nbact_src_var_name = nbact
+nbact_src_var_unit = none
+nbact_dest_var_name =  nbact
+nbact_dest_var_unit = mol kg-1
+nbact_src_var_record = 1
+nbact_src_var_gridspec = NONE
+nbact_valid_min = 0.0
+#
+# min = -6.356E-11,  max = 1.154E-07 from input dataset
+ndi_src_file = INPUT/DG_init_file.nc  
+ndi_src_var_name = ndi
+ndi_src_var_unit = none
+ndi_dest_var_name =  ndi
+ndi_dest_var_unit = mol kg-1
+ndi_src_var_record = 1
+ndi_src_var_gridspec = NONE
+ndi_valid_min = 0.0
+#
+# min = -3.206E-10,  max = 9.267E-07 from input dataset
+nlg_src_file = INPUT/DG_init_file.nc  
+nlg_src_var_name = nlg
+nlg_src_var_unit = none
+nlg_dest_var_name =  nlg
+nlg_dest_var_unit = mol kg-1
+nlg_src_var_record = 1
+nlg_src_var_gridspec = NONE
+nlg_valid_min = 0.0
+#
+# min = -3.142E-10,  max = 2.285E-06 from input dataset
+nsm_src_file = INPUT/DG_init_file.nc  
+nsm_src_var_name = nsm
+nsm_src_var_unit = none
+nsm_dest_var_name =  nsm
+nsm_dest_var_unit = mol kg-1
+nsm_src_var_record = 1
+nsm_src_var_gridspec = NONE
+nsm_valid_min = 0.0
+#
+# min = -1.241E-10,  max = 5.693E-07 from input dataset
+nlgz_src_file = INPUT/DG_init_file.nc  
+nlgz_src_var_name = nlgz
+nlgz_src_var_unit = none
+nlgz_dest_var_name =  nlgz
+nlgz_dest_var_unit = mol kg-1
+nlgz_src_var_record = 1
+nlgz_src_var_gridspec = NONE
+nlgz_valid_min = 0.0
+#
+# min = -1.766E-10,  max = 7.131E-07 from input dataset
+nmdz_src_file = INPUT/DG_init_file.nc  
+nmdz_src_var_name = nmdz
+nmdz_src_var_unit = none
+nmdz_dest_var_name =  nmdz
+nmdz_dest_var_unit = mol kg-1
+nmdz_src_var_record = 1
+nmdz_src_var_gridspec = NONE
+nmdz_valid_min = 0.0
+#
+# min = -1.766E-10,  max = 7.131E-07 from input dataset
+nsmz_src_file = INPUT/DG_init_file.nc  
+nsmz_src_var_name = nsmz
+nsmz_src_var_unit = none
+nsmz_dest_var_name =  nsmz
+nsmz_dest_var_unit = mol kg-1
+nsmz_src_var_record = 1
+nsmz_src_var_gridspec = NONE
+nsmz_valid_min = 0.0
+#
+# min = 0,  max = 4.083E-10 from input dataset
+fedet_src_file = INPUT/DG_init_file.nc  
+fedet_src_var_name = fedet
+fedet_src_var_unit = none
+fedet_dest_var_name =  fedet
+fedet_dest_var_unit = mol kg-1
+fedet_src_var_record = 1
+fedet_src_var_gridspec = NONE
+fedet_valid_min = 0.0
+#
+# min = 0,  max = 1.137E-06 from input dataset
+lithdet_src_file = INPUT/DG_init_file.nc  
+lithdet_src_var_name = lithdet
+lithdet_src_var_unit = none
+lithdet_dest_var_name =  lithdet
+lithdet_dest_var_unit = mol kg-1
+lithdet_src_var_record = 1
+lithdet_src_var_gridspec = NONE
+lithdet_valid_min = 0.0
+#
+# min = 0,  max = 8.271E-08 from input dataset
+ndet_src_file = INPUT/DG_init_file.nc  
+ndet_src_var_name = ndet
+ndet_src_var_unit = none
+ndet_dest_var_name =  ndet
+ndet_dest_var_unit = mol kg-1
+ndet_src_var_record = 1
+ndet_src_var_gridspec = NONE
+ndet_valid_min = 0.0
+#
+# min = 0,  max = 5.169E-09 from input dataset
+pdet_src_file = INPUT/DG_init_file.nc  
+pdet_src_var_name = pdet
+pdet_src_var_unit = none
+pdet_dest_var_name =  pdet
+pdet_dest_var_unit = mol kg-1
+pdet_src_var_record = 1
+pdet_src_var_gridspec = NONE
+pdet_valid_min = 0.0
+#
+# min = 0,  max = 4.827E-07 from input dataset
+sidet_src_file = INPUT/DG_init_file.nc  
+sidet_src_var_name = sidet
+sidet_src_var_unit = none
+sidet_dest_var_name =  sidet
+sidet_dest_var_unit = mol kg-1
+sidet_src_var_record = 1
+sidet_src_var_gridspec = NONE
+sidet_valid_min = 0.0
+#
+# min = 0,  max = 4.897E-06 from input dataset
+silg_src_file = INPUT/DG_init_file.nc  
+silg_src_var_name = silg
+silg_src_var_unit = none
+silg_dest_var_name =  silg
+silg_dest_var_unit = mol kg-1
+silg_src_var_record = 1
+silg_src_var_gridspec = NONE
+silg_valid_min = 0.0
+#
+# min = -6.824E-10,  max = 2.989E-06 from input dataset
+sldon_src_file = INPUT/DG_init_file.nc  
+sldon_src_var_name = sldon
+sldon_src_var_unit = none
+sldon_dest_var_name =  sldon
+sldon_dest_var_unit = mol kg-1
+sldon_src_var_record = 1
+sldon_src_var_gridspec = NONE
+sldon_valid_min = 0.0
+#
+# min = -4.722E-11,  max = 1.819E-07 from input dataset
+sldop_src_file = INPUT/DG_init_file.nc  
+sldop_src_var_name = sldop
+sldop_src_var_unit = none
+sldop_dest_var_name =  sldop
+sldop_dest_var_unit = mol kg-1
+sldop_src_var_record = 1
+sldop_src_var_gridspec = NONE
+sldop_valid_min = 0.0
+#
+# min = -3.007E-12,  max = 6.038E-06 from input dataset
+srdon_src_file = INPUT/DG_init_file.nc  
+srdon_src_var_name = srdon
+srdon_src_var_unit = none
+srdon_dest_var_name =  srdon
+srdon_dest_var_unit = mol kg-1
+srdon_src_var_record = 1
+srdon_src_var_gridspec = NONE
+srdon_valid_min = 0.0
+#
+# min = -1.257E-11,  max = 3.831E-07 from input dataset
+srdop_src_file = INPUT/DG_init_file.nc  
+srdop_src_var_name = srdop
+srdop_src_var_unit = none
+srdop_dest_var_name =  srdop
+srdop_dest_var_unit = mol kg-1
+srdop_src_var_record = 1
+srdop_src_var_gridspec = NONE
+srdop_valid_min = 0.0
+#
+# min = 0,  max = 1.465E-08 from input dataset
+cadet_arag_btf_src_file = INPUT/DG_init_file.nc  
+cadet_arag_btf_src_var_name = cadet_arag_btf
+cadet_arag_btf_src_var_unit = none
+cadet_arag_btf_dest_var_name =  cadet_arag_btf
+cadet_arag_btf_dest_var_unit = mol kg-1
+cadet_arag_btf_src_var_record = 1
+cadet_arag_btf_src_var_gridspec = NONE
+cadet_arag_btf_valid_min = 0.0
+#
+# min = 0,  max = 2.011E-08 from input dataset
+cadet_calc_btf_src_file = INPUT/DG_init_file.nc  
+cadet_calc_btf_src_var_name = cadet_calc_btf
+cadet_calc_btf_src_var_unit = none
+cadet_calc_btf_dest_var_name =  cadet_calc_btf
+cadet_calc_btf_dest_var_unit = mol kg-1
+cadet_calc_btf_src_var_record = 1
+cadet_calc_btf_src_var_gridspec = NONE
+cadet_calc_btf_valid_min = 0.0
+#
+# min = 0,  max = 1.364E-06 from input dataset
+lithdet_btf_src_file = INPUT/DG_init_file.nc  
+lithdet_btf_src_var_name = lithdet_btf
+lithdet_btf_src_var_unit = none
+lithdet_btf_dest_var_name =  lithdet_btf
+lithdet_btf_dest_var_unit = mol kg-1
+lithdet_btf_src_var_record = 1
+lithdet_btf_src_var_gridspec = NONE
+lithdet_btf_valid_min = 0.0
+#
+# min = 0,  max = 8.360E-08 from input dataset
+ndet_btf_src_file = INPUT/DG_init_file.nc  
+ndet_btf_src_var_name = ndet_btf
+ndet_btf_src_var_unit = none
+ndet_btf_dest_var_name =  ndet_btf
+ndet_btf_dest_var_unit = mol kg-1
+ndet_btf_src_var_record = 1
+ndet_btf_src_var_gridspec = NONE
+ndet_btf_valid_min = 0.0
+#
+# min = 0,  max = 5.225E-09 from input dataset
+pdet_btf_src_file = INPUT/DG_init_file.nc  
+pdet_btf_src_var_name = pdet_btf
+pdet_btf_src_var_unit = none
+pdet_btf_dest_var_name =  pdet_btf
+pdet_btf_dest_var_unit = mol kg-1
+pdet_btf_src_var_record = 1
+pdet_btf_src_var_gridspec = NONE
+pdet_btf_valid_min = 0.0
+#
+# min = 0,  max = 5.767E-07 from input dataset
+sidet_btf_src_file = INPUT/DG_init_file.nc  
+sidet_btf_src_var_name = sidet_btf
+sidet_btf_src_var_unit = none
+sidet_btf_dest_var_name =  sidet_btf
+sidet_btf_dest_var_unit = mol kg-1
+sidet_btf_src_var_record = 1
+sidet_btf_src_var_gridspec = NONE
+sidet_btf_valid_min = 0.0
+#
+# min = 0,  max = 0 from input dataset
+mu_mem_ndi_src_file = INPUT/DG_init_file.nc  
+mu_mem_ndi_src_var_name = mu_mem_ndi
+mu_mem_ndi_src_var_unit = none
+mu_mem_ndi_dest_var_name =  mu_mem_ndi
+mu_mem_ndi_dest_var_unit = mol kg-1
+mu_mem_ndi_src_var_record = 1
+mu_mem_ndi_src_var_gridspec = NONE
+mu_mem_ndi_valid_min = 0.0
+#
+# min = 0,  max = 0 from input dataset
+mu_mem_nlg_src_file = INPUT/DG_init_file.nc  
+mu_mem_nlg_src_var_name = mu_mem_nlg
+mu_mem_nlg_src_var_unit = none
+mu_mem_nlg_dest_var_name =  mu_mem_nlg
+mu_mem_nlg_dest_var_unit = mol kg-1
+mu_mem_nlg_src_var_record = 1
+mu_mem_nlg_src_var_gridspec = NONE
+mu_mem_nlg_valid_min = 0.0
+#
+# min = 0,  max = 0 from input dataset
+mu_mem_nsm_src_file = INPUT/DG_init_file.nc  
+mu_mem_nsm_src_var_name = mu_mem_nsm
+mu_mem_nsm_src_var_unit = none
+mu_mem_nsm_dest_var_name =  mu_mem_nsm
+mu_mem_nsm_dest_var_unit = mol kg-1
+mu_mem_nsm_src_var_record = 1
+mu_mem_nsm_src_var_gridspec = NONE
+mu_mem_nsm_valid_min = 0.0
+#
+# min = 0,  max = 0 from input dataset
+fedet_btf_src_file = INPUT/DG_init_file.nc  
+fedet_btf_src_var_name = pdet_btf
+fedet_btf_src_var_unit = none
+fedet_btf_dest_var_name =  fedet_btf
+fedet_btf_dest_var_unit = mol kg-1
+fedet_btf_src_var_record = 1
+fedet_btf_src_var_gridspec = NONE
+fedet_btf_valid_min = 0.0
+# f1p-> required for cobalt new schemes + nh3 ocean/atm exchange
+# min = 0,  max = 1. from input dataset
+# nh3_src_file = INPUT/DG_init_nh3.nc  
+# error shows up with above file try file with all tracers
+nh3_src_file = INPUT/DG_init_file.nc 
+nh3_src_var_name = nh3
+nh3_src_var_unit = none
+nh3_dest_var_name = nh3
+nh3_dest_var_unit = mol kg-1
+nh3_src_var_record = 1
+nh3_src_var_gridspec = NONE
+nh3_valid_min = 0.0
+#
+/
+###.................................................
+
