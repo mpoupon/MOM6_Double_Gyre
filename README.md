@@ -74,7 +74,7 @@ $ sbatch slurmjob resetyear
 ## `ice_ocean_sis2/OM4_DG_COBALT` structure:
 
 #### `./INPUT/`
-
+Folder where all input files are added.
 
 #### `./LOG_HIST/`
 Output folder for slurm logs
@@ -111,28 +111,33 @@ Specifies which models to couple and higher level options. The only options I ha
 
 ## `Codes` description:
 
-Contains the Python Notebooks and functions required to generate all the input files for this configuration (grid, initilization, forcings):
+Contains the Python Notebooks and functions required to generate all the input files for this configuration (grid, initialization, forcings). These files can also be downloaded from [Zenodo](https://zenodo.org/records/13847760?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImVjZGI5NjI0LTJlZjUtNGRjMi05YTVmLTNlZTZlNDRhMGMxZSIsImRhdGEiOnt9LCJyYW5kb20iOiIwZjAzZGM1Mjc2YTI1Nzg0YmJiMjM3YTYwMWE1Yjg2MiJ9.iZ9Lk5_WoRF0wc5LmT16HKlepEvsMNeSXP3Ea-Scx-wBtu9IrDN4q2CAlwSBSDgb8GFSGsQDkKptDGr-3gUbTg). These input files need to be added to the `ice_ocean_SIS2/OM4_DG_COBALT/INPUTS` folder.
 
-`DG_CalcForcings.ipynb`
-Calculates the monthly/3-hourly zonal averages to create the forcing files 
-zonal averages are saved in `./INPUT/ZonalMeans/ `
+#### `make_forcings`
 
-`DG_GridForcings.ipynb `
-Grids the zonal averages by repeating them at every point of longitude. It must be preceded by `DG_CalcForcings.ipynb`. Note that precipitation is scaled by the ratio of ocean in our model vs. in the North Atlantic Ocean, which uses `model_ocean_widths.nc` (calculated using `DG_CalcOceWidth_ModAtl.m`) gridded forcing files are saved in `./INPUT/`, where they will be read by the model
+**`DG_MakeForcing_JRA.ipynb`**:
+Create the pressure, temperature, humidity, snow, rain and radiation forcing with a time resolution of 3 hours from the JRA55-do-v1.5 reanalysis.
 
-`DG_InitializationFiles.ipynb`
-Creates initialization files for the 1° spin up run by calculating averaged profiles and repeating them throughout the domain
+**`DG_MakeForcing_Idealized.ipynb`**:
+Create an idealised sinusoidal zonal wind forcing.
 
-`DG_InitializationFiles_HiResRuns.ipynb`
-Creates initialization files for the higher resolution runs using output from the spin up. 
+**`DG_MakeForcing_ESM.ipynb`**:
+Create atmospheric chemical deposition forcings from ESM4 simulation outputs.
 
-`DG_MakeGrids.ipynb`
-Creates the grids required for the 1°, 1/9° and 1/27° simulations. An untraceable formatting issue in the Python code prevents the files from being used with FMS to generate the additional and necessary grid files. DG_MakeGrids.ipynb must therefore be followed by two Matlab scripts: `FixFormat_hgrid.m` and `FixFormat_topog.m`.
+**`DG_MakeForcing_ERA.ipynb`**:
+Create the high-resolution (1hr) radiation forcings needed to model the vertical migration of zooplankton from the ERA5 reanalysis.
 
-`DG_MakeGrids.ipynb`
-The initial grid files (`DG_hgrid_*deg*.nc`, `DG_topog_*deg*.nc`, and `DG_geothermal0_*deg_py.nc`) are saved in `./INPUT/DG_*deg/make_mask_mosaic_DG_*deg.sh` must then be run from within `./INPUT/DG_*deg/`: 
-```
-$ ./make_mask_mosaic_DG_*deg.sh
-```
 
-`DG_MakeHighResVertCoord.ipynb`
+#### `make_grid`
+**`DG_MakeGrids.ipynb`**:
+Create a horizontal grid with a resolution of 85km, 9.4km or 3.1km.
+
+**`DG_MakeHighResVertCoord.ipynb`**:
+Create the vertical grid for high-resolution simulations (9.4km and 3.1km).
+
+#### `make_init`
+**`make_init_DG_init_file.ipynb`**:
+Create initialization files from the output of a spin-up simulation.
+
+**`make_init_WOA-SOCAT-ESM.ipynb`**:
+Create initialization files from World Ocean Atlas, SOCAT and ESM4 outputs.
