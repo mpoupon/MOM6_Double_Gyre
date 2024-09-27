@@ -43,7 +43,7 @@ The default model code is set for a horizontal resolution of 9.4 km. If you want
 
 2. **Add the required inputs (grid, initialisation and forcing) in the `./INPUT folder`:**
 
-You can download the inputs corresponding to the model resolution from [Zenodo](https://zenodo.org/records/13847760?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImVjZGI5NjI0LTJlZjUtNGRjMi05YTVmLTNlZTZlNDRhMGMxZSIsImRhdGEiOnt9LCJyYW5kb20iOiIwZjAzZGM1Mjc2YTI1Nzg0YmJiMjM3YTYwMWE1Yjg2MiJ9.iZ9Lk5_WoRF0wc5LmT16HKlepEvsMNeSXP3Ea-Scx-wBtu9IrDN4q2CAlwSBSDgb8GFSGsQDkKptDGr-3gUbTg), or generate them yourself using the functions in `Codes` ([see section](#codes)). To save space if you are running multiple simulations, you can also store the input files in another folder and only use symbolic links in the `./INPUT` folder.
+You can download the inputs corresponding to the model resolution from [Zenodo](https://zenodo.org/records/13847760?preview=1&token=eyJhbGciOiJIUzUxMiJ9.eyJpZCI6ImVjZGI5NjI0LTJlZjUtNGRjMi05YTVmLTNlZTZlNDRhMGMxZSIsImRhdGEiOnt9LCJyYW5kb20iOiIwZjAzZGM1Mjc2YTI1Nzg0YmJiMjM3YTYwMWE1Yjg2MiJ9.iZ9Lk5_WoRF0wc5LmT16HKlepEvsMNeSXP3Ea-Scx-wBtu9IrDN4q2CAlwSBSDgb8GFSGsQDkKptDGr-3gUbTg), or generate them yourself using the functions in `Codes` ([see section](#codes-description)). To save space if you are running multiple simulations, you can also store the input files in another folder and only use symbolic links in the `./INPUT` folder.
 
 3. **Configure the slurm job in `slurmjob.sh`:**
 
