@@ -72,7 +72,6 @@ $ sbatch slurmjob resetyear
 ```
 
 ## `ice_ocean_sis2/OM4_DG_COBALT` structure:
-<a name="structure"></a>
 
 #### `./INPUT/`
 
