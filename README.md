@@ -7,7 +7,7 @@ https://doi.org/10.1029/2019MS001726)) and the biogeochemical module can be used
 
 - `DG-MOM6-COBALTv2`: The double gyre configuration **without** zooplankton vertical migration
 - `DG-MOM6-COBALTv2-DVM`: The double gyre configuration **with** zooplankton vertical migration
-- `Codes`: Codes for creating the grid, initial conditions and boundary forcing.
+- `Codes`: Codes for creating the grid, initial conditions and boundary forcing ([see below](#codes-description)).
 
 ## Directory description
 
@@ -134,3 +134,5 @@ Specifies which models to couple and higher level options. The only options I ha
 **`*_layout`** & **`*_override`**: not typically used
 
 #### `./slurmjob.sh`
+
+## `Codes` description:
