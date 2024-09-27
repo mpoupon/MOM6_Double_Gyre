@@ -75,32 +75,6 @@ $ sbatch slurmjob resetyear
 
 #### `./INPUT/`
 
-#### `./INPUT/code/`
-Contains the Python Notebooks and functions required to generate all the input files for this configuration:
-
-`DG_CalcForcings.ipynb`
-Calculates the monthly/3-hourly zonal averages to create the forcing files 
-zonal averages are saved in `./INPUT/ZonalMeans/ `
-
-`DG_GridForcings.ipynb `
-Grids the zonal averages by repeating them at every point of longitude. It must be preceded by `DG_CalcForcings.ipynb`. Note that precipitation is scaled by the ratio of ocean in our model vs. in the North Atlantic Ocean, which uses `model_ocean_widths.nc` (calculated using `DG_CalcOceWidth_ModAtl.m`) gridded forcing files are saved in `./INPUT/`, where they will be read by the model
-
-`DG_InitializationFiles.ipynb`
-Creates initialization files for the 1° spin up run by calculating averaged profiles and repeating them throughout the domain
-
-`DG_InitializationFiles_HiResRuns.ipynb`
-Creates initialization files for the higher resolution runs using output from the spin up. 
-
-`DG_MakeGrids.ipynb`
-Creates the grids required for the 1°, 1/9° and 1/27° simulations. An untraceable formatting issue in the Python code prevents the files from being used with FMS to generate the additional and necessary grid files. DG_MakeGrids.ipynb must therefore be followed by two Matlab scripts: `FixFormat_hgrid.m` and `FixFormat_topog.m`.
-
-`DG_MakeGrids.ipynb`
-The initial grid files (`DG_hgrid_*deg*.nc`, `DG_topog_*deg*.nc`, and `DG_geothermal0_*deg_py.nc`) are saved in `./INPUT/DG_*deg/make_mask_mosaic_DG_*deg.sh` must then be run from within `./INPUT/DG_*deg/`: 
-```
-$ ./make_mask_mosaic_DG_*deg.sh
-```
-
-`DG_MakeHighResVertCoord.ipynb`
 
 #### `./LOG_HIST/`
 Output folder for slurm logs
@@ -136,3 +110,29 @@ Specifies which models to couple and higher level options. The only options I ha
 #### `./slurmjob.sh`
 
 ## `Codes` description:
+
+Contains the Python Notebooks and functions required to generate all the input files for this configuration (grid, initilization, forcings):
+
+`DG_CalcForcings.ipynb`
+Calculates the monthly/3-hourly zonal averages to create the forcing files 
+zonal averages are saved in `./INPUT/ZonalMeans/ `
+
+`DG_GridForcings.ipynb `
+Grids the zonal averages by repeating them at every point of longitude. It must be preceded by `DG_CalcForcings.ipynb`. Note that precipitation is scaled by the ratio of ocean in our model vs. in the North Atlantic Ocean, which uses `model_ocean_widths.nc` (calculated using `DG_CalcOceWidth_ModAtl.m`) gridded forcing files are saved in `./INPUT/`, where they will be read by the model
+
+`DG_InitializationFiles.ipynb`
+Creates initialization files for the 1° spin up run by calculating averaged profiles and repeating them throughout the domain
+
+`DG_InitializationFiles_HiResRuns.ipynb`
+Creates initialization files for the higher resolution runs using output from the spin up. 
+
+`DG_MakeGrids.ipynb`
+Creates the grids required for the 1°, 1/9° and 1/27° simulations. An untraceable formatting issue in the Python code prevents the files from being used with FMS to generate the additional and necessary grid files. DG_MakeGrids.ipynb must therefore be followed by two Matlab scripts: `FixFormat_hgrid.m` and `FixFormat_topog.m`.
+
+`DG_MakeGrids.ipynb`
+The initial grid files (`DG_hgrid_*deg*.nc`, `DG_topog_*deg*.nc`, and `DG_geothermal0_*deg_py.nc`) are saved in `./INPUT/DG_*deg/make_mask_mosaic_DG_*deg.sh` must then be run from within `./INPUT/DG_*deg/`: 
+```
+$ ./make_mask_mosaic_DG_*deg.sh
+```
+
+`DG_MakeHighResVertCoord.ipynb`
