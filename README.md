@@ -115,29 +115,21 @@ Contains the Python Notebooks and functions required to generate all the input f
 
 #### `make_forcings`
 
-**`DG_MakeForcing_JRA.ipynb`**:
-Create the pressure, temperature, humidity, snow, rain and radiation forcing with a time resolution of 3 hours from the JRA55-do-v1.5 reanalysis.
+- **`DG_MakeForcing_JRA.ipynb`**: Create the pressure, temperature, humidity, snow, rain and radiation forcing with a time resolution of 3 hours from the JRA55-do-v1.5 reanalysis.
 
-**`DG_MakeForcing_Idealized.ipynb`**:
-Create an idealised sinusoidal zonal wind forcing.
+- **`DG_MakeForcing_Idealized.ipynb`**: Create an idealised sinusoidal zonal wind forcing.
 
-**`DG_MakeForcing_ESM.ipynb`**:
-Create atmospheric chemical deposition forcings from ESM4 simulation outputs.
+- **`DG_MakeForcing_ESM.ipynb`**: Create atmospheric chemical deposition forcings from ESM4 simulation outputs.
 
-**`DG_MakeForcing_ERA.ipynb`**:
-Create the high-resolution (1hr) radiation forcings needed to model the vertical migration of zooplankton from the ERA5 reanalysis.
+- **`DG_MakeForcing_ERA.ipynb`**: Create the high-resolution (1hr) radiation forcings needed to model the vertical migration of zooplankton from the ERA5 reanalysis.
 
 
 #### `make_grid`
-**`DG_MakeGrids.ipynb`**:
-Create a horizontal grid with a resolution of 85km, 9.4km or 3.1km.
+- **`DG_MakeGrids.ipynb`**: Create a horizontal grid with a resolution of 85km, 9.4km or 3.1km.
 
-**`DG_MakeHighResVertCoord.ipynb`**:
-Create the vertical grid for high-resolution simulations (9.4km and 3.1km).
+- **`DG_MakeHighResVertCoord.ipynb`**: Create the vertical grid for high-resolution simulations (9.4km and 3.1km).
 
 #### `make_init`
-**`make_init_DG_init_file.ipynb`**:
-Create initialization files from the output of a spin-up simulation.
+- **`make_init_DG_init_file.ipynb`**: Create initialization files from the output of a spin-up simulation.
 
-**`make_init_WOA-SOCAT-ESM.ipynb`**:
-Create initialization files from World Ocean Atlas, SOCAT and ESM4 outputs.
+- **`make_init_WOA-SOCAT-ESM.ipynb`**: Create initialization files from World Ocean Atlas, SOCAT and ESM4 outputs.
