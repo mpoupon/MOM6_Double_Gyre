@@ -1,0 +1,42 @@
+! Parameter options when running double gyre with COBALT.
+! Moved out of MOM_input
+! === module MOM_tracer_flow_control ===
+USE_generic_tracer = False      !   [Boolean] default = False
+                                ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
+                                ! MOM_generic_tracer packages.
+                                
+! === module MOM_diabatic_aux ===
+VAR_PEN_SW = False              !   [Boolean] default = False !liao true if from chl file or chl cobalt
+                                ! If true, use one of the CHL_A schemes specified by OPACITY_SCHEME to determine
+                                ! the e-folding depth of incoming short wave radiation.
+                                
+! === module MOM_opacity ===
+!liao add below for VAR_PEN_SW = False
+EXP_OPACITY_SCHEME = "SINGLE_EXP" ! default = "SINGLE_EXP"
+                                ! This character string specifies which exponential opacity scheme to utilize.
+                                ! Currently valid options include:
+                                !        SINGLE_EXP - Single Exponent decay.
+                                !        DOUBLE_EXP - Double Exponent decay.
+PEN_SW_SCALE = 15.0             !   [m] default = 0.0
+                                ! The vertical absorption e-folding depth of the penetrating shortwave
+                                ! radiation.
+PEN_SW_FRAC = 0.42              !   [nondim] default = 0.0
+                                ! The fraction of the shortwave radiation that penetrates below the surface.
+PEN_SW_NBANDS = 1               ! default = 1
+                                ! The number of bands of penetrating shortwave radiation.
+OPTICS_2018_ANSWERS = False     !   [Boolean] default = False
+                                ! If true, use the order of arithmetic and expressions that recover the answers
+                                ! from the end of 2018.  Otherwise, use updated expressions for handling the
+                                ! absorption of small remaining shortwave fluxes.
+PEN_SW_FLUX_ABSORB = 2.5E-11    !   [degC m s-1] default = 2.5E-11
+                                ! A minimum remaining shortwave heating rate that will be simply absorbed in the
+                                ! next sufficiently thick layers for computational efficiency, instead of
+                                ! continuing to penetrate.  The default, 2.5e-11 degC m s-1, is about 1e-4 W m-2
+                                ! or 0.08 degC m century-1, but 0 is also a valid value.
+PEN_SW_ABSORB_MINTHICK = 1.0    !   [m] default = 1.0
+                                ! A thickness that is used to absorb the remaining penetrating shortwave heat
+                                ! flux when it drops below PEN_SW_FLUX_ABSORB.
+OPACITY_LAND_VALUE = 10.0       !   [m-1] default = 10.0
+                                ! The value to use for opacity over land. The default is 10 m-1 - a value for
+                                ! muddy water.
+!liao end add

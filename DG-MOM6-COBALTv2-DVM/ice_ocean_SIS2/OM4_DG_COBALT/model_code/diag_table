@@ -1,0 +1,821 @@
+control
+1900 1 1 0 0 0
+#==========================================================================================
+# MOM6 ocean diagnostics files output files
+# See GFDL docs for help with the structure:
+#      https://mom6.readthedocs.io/en/dev-gfdl/api/generated/pages/Diagnostics.html
+# For a list of available diagnostics, see available_diags.0000
+#
+# Note that this is a very limited diag_table for annual output during spin up -- JCG
+#==========================================================================================
+# Set the format for each output file by specifying the following:
+#
+# "file_name",  output_freq,  "output_freq_units",  file_format,  "time_axis_units",  "time_axis_name", new_file_freq, "new_file_freq_units"
+#------------------------------------------------------------------------------------------
+# hist_control_ocean_static  is  a  protected  name.  Do  not  change  this  line. Output once.
+"hist_control_ocean_static",                  -1, "months",   1, "days",   "time"
+#
+# Other files - annual output:
+#"hist_control_dynamics3d_yearly_%4yr_%2mo",        1, "days",    1, "days",   "time",   12, "months"
+"hist_control_dynamics2d_yearly_%4yr_%2mo",        1, "days",    1, "days",   "time",   12, "months"
+
+# COBALT files - reduced output
+#"hist_control_cobalt_3d_yearly_%4yr_%2mo",         1, "days",      1, "days",   "time",   12, "months"
+"hist_control_cobalt_sfc_yearly_%4yr_%2mo",        1, "days",    1, "days",   "time",   12, "months"
+
+#"hist_control_cobalt_phytolim_sfc_%4yr_%2mo",        1, "months",    1, "days",   "time",   12, "months"
+#"hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo",  1, "months",    1, "days",   "time",   12, "months"
+
+# COBALT files - Zooplankton
+#"hist_control_zooplankton_dyn_yearly_%4yr_%2mo",   1, "days",      1, "days",   "time",   12, "months"
+"hist_zooplankton_dynamics_%4yr_%2mo",             1, "days",      1, "days",   "time",   12, "months"
+#"hist_phytoplankton_dynamics_%4yr_%2mo",           1, "days",      1, "days",   "time",   12, "months"
+
+#"hist_control_cobalt_dvm_diurnal_%4yr_%2mo",       1, "days",      1, "days",   "time",   12, "months"
+#"hist_control_cobalt_dvm_daily_%4yr_%2mo",         1, "days",      1, "days",   "time",   12, "months"
+
+
+# COBALT - annual budgets
+#"hist_control_diagz_doc_yearly_%4yr_%2mo",           1, "days",    1, "days",   "time",   12, "months"
+#"hist_control_diagz_poc_yearly_%4yr_%2mo",           1, "days",    1, "days",   "time",   12, "months"
+#"hist_control_diagz_dic_yearly_%4yr_%2mo",           1, "days",    1, "days",   "time",   12, "months"
+#"hist_control_diagz_pic_yearly_%4yr_%2mo",           1, "days",    1, "days",   "time",   12, "months"
+#"hist_control_cpump_yearly_%4yr_%2mo",               1, "days",    1, "days",   "time",   12, "months"
+
+#
+#==========================================================================================
+# Below, list the parameters that should be included in each file
+#==========================================================================================
+#
+#------------------------------------------------------------------------------------------
+# STATIC FILE (hist_control_ocean_static)
+#------------------------------------------------------------------------------------------
+"ocean_model",     "geolat",      "geolat",      "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "geolon",      "geolon",      "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "geolat_c",    "geolat_c",    "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "geolon_c",    "geolon_c",    "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "geolat_u",    "geolat_u",    "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "geolon_u",    "geolon_u",    "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "geolat_v",    "geolat_v",    "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "geolon_v",    "geolon_v",    "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "dxCv",        "dxCv",        "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "dyCv",        "dyCv",        "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "dxCu",        "dxCu",        "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "dyCu",        "dyCu",        "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "dyt",         "dyt",         "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "dxt",         "dxt",         "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "Coriolis",    "Coriolis",    "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "wet_c",       "wet_c",       "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "wet_u",       "wet_u",       "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "wet_v",       "wet_v",       "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "wet",         "wet",         "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "area_t",      "area_t",      "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "area_u",      "area_u",      "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "area_v",      "area_v",      "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "area_q",      "area_q",      "hist_control_ocean_static",  "all",  "none",  "none",  2
+"ocean_model",     "depth_ocean", "depth_ocean", "hist_control_ocean_static",  "all",  "none",  "none",  2
+
+#==========================================================================================
+# OCEAN MODEL DIAGNOSTICS
+#==========================================================================================
+
+#------------------------------------------------------------------------------------------
+# Physics full depth 3d z coordinate (hist_control_dynamics3d_yearly_%4yr)
+#------------------------------------------------------------------------------------------
+#"ocean_model",     "geolat",        "geolat",       "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "none",  "none",  2
+#"ocean_model",     "geolon",        "geolon",       "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "none",  "none",  2
+#"ocean_model",     "geolat_c",      "geolat_c",     "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "none",  "none",  2
+#"ocean_model",     "geolon_c",      "geolon_c",     "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "none",  "none",  2
+#"ocean_model",     "geolat_u",      "geolat_u",     "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "none",  "none",  2
+#"ocean_model",     "geolon_u",      "geolon_u",     "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "none",  "none",  2
+#"ocean_model",     "geolat_v",      "geolat_v",     "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "none",  "none",  2
+#"ocean_model",     "geolon_v",      "geolon_v",     "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "none",  "none",  2
+#"ocean_model_z",   "temp",          "temp",         "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+#"ocean_model_z",   "salt",          "salt",         "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+#"ocean_model_z",   "u",             "u",            "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+#"ocean_model_z",   "v",             "v",            "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+#"ocean_model_z",   "Kd_interface",  "Kd_interface", "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+#"ocean_model_z",   "rhopot0",       "rhopot0",      "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+#"ocean_model_z",   "ea",            "ea",           "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+#"ocean_model_z",   "eb",            "eb",           "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+#"ocean_model_z",   "umo",           "umo",          "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+#"ocean_model_z",   "vmo",           "vmo",          "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+#"ocean_model_z",   "N2",            "N2",           "hist_control_dynamics3d_yearly_%4yr_%2mo",  "all",  "mean",  "none",  2
+
+#------------------------------------------------------------------------------------------
+# Physics surface 2d (hist_control_dynamics2d_yearly_%4yr)
+#------------------------------------------------------------------------------------------
+"ocean_model",     "geolat",           "geolat",           "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+"ocean_model",     "geolon",           "geolon",           "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+"ocean_model",     "geolat_c",         "geolat_c",         "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+"ocean_model",     "geolon_c",         "geolon_c",         "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+"ocean_model",     "geolat_u",         "geolat_u",         "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+"ocean_model",     "geolon_u",         "geolon_u",         "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+"ocean_model",     "geolat_v",         "geolat_v",         "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+"ocean_model",     "geolon_v",         "geolon_v",         "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+"ocean_model",     "SST",              "SST",              "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "SSS",              "SSS",              "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "SSH",              "SSH",              "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "zos",              "zos",              "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "SSU",              "SSU",              "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "SSV",              "SSV",              "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "taux",             "taux",             "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "tauy",             "tauy",             "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "SW",               "SW",               "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "SW",               "SW_max",           "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "max",  "none", 2
+"ocean_model",     "LW",               "LW",               "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "latent",           "latent",           "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "sensible",         "sensible",         "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "MLD_003",          "MLD_003",          "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "MLD_003",          "MLD_003_max",      "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "max",  "none", 2
+"ocean_model",     "MLD_0125",         "MLD_0125",         "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "evap",             "evap",             "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "precip",           "precip",           "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "PRCmE",            "PRCmE",            "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "ePBL_h_ML",        "ePBL_h_ML",        "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "hfrunoffds",       "hfrunoffds",       "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "net_heat_coupler", "net_heat_coupler", "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "net_heat_surface", "net_heat_surface", "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+"ocean_model",     "salt_flux",        "salt_flux",        "hist_control_dynamics2d_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#==========================================================================================
+# GENERIC OCEAN COBALT DIAGNOSTICS
+#==========================================================================================
+
+#------------------------------------------------------------------------------------------
+# COBALT, 3D yearly (hist_control_cobalt_3d_yearly_%4yr)
+#------------------------------------------------------------------------------------------
+#"ocean_model",       "geolat",            "geolat",            "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",       "geolon",            "geolon",            "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",       "geolat_c",          "geolat_c",          "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",       "geolon_c",          "geolon_c",          "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",       "geolat_t",          "geolat_t",          "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",       "geolon_t",          "geolon_t",          "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model_z",     "rhopot0",           "rhopot0",           "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"ocean_model_z",       "thkcello",          "thkcello",          "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "rho_dzt",           "rho_dzt",           "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "chl",               "chl",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "htotal",            "htotal",            "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "no3",               "no3",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "o2",                "o2",                "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "ndi",               "ndi",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "nlg",               "nlg",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "nsm",               "nsm",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "nbact",             "nbact",             "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "nsmz",              "nsmz",              "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "nmdz",              "nmdz",              "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "nlgz",              "nlgz",              "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "nvmmdz",            "nvmmdz",            "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "nvmlgz",            "nvmlgz",            "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "alk",               "alk",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "dic",               "dic",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "fed",               "fed",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "ldon",              "ldon",              "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "ndet",              "ndet",              "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "nh4",               "nh4",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "po4",               "po4",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "srdon",             "srdon",             "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "sldon",             "sldon",             "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "sio4",              "sio4",              "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "cadet_calc",        "cadet_calc",        "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "cadet_arag",        "cadet_arag",        "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "net_prim_prod",     "net_prim_prod",     "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "expc",              "expc",              "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "poc",               "poc",               "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "pp",                "pp",                "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "irr_inst",          "irr_inst",          "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "irr_inst_max",      "irr_inst_max",      "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "max",   "none", 2
+#"generic_cobalt_z",    "irr_mix",           "irr_mix",           "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt_z",    "irr_mem",           "irr_mem",           "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",      "tot_layer_int_c",   "tot_layer_int_c",   "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",      "tot_layer_int_dic", "tot_layer_int_dic", "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",      "tot_layer_int_doc", "tot_layer_int_doc", "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",      "tot_layer_int_pic", "tot_layer_int_pic", "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",      "tot_layer_int_poc", "tot_layer_int_poc", "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",      "tot_layer_int_fe",  "tot_layer_int_fe",  "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",      "tot_layer_int_n",   "tot_layer_int_n",   "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",      "tot_layer_int_p",   "tot_layer_int_p",   "hist_control_cobalt_3d_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#------------------------------------------------------------------------------------------
+# COBALT, yearly surface fields (hist_control_cobalt_sfc_yearly_%4yr)
+#------------------------------------------------------------------------------------------
+"ocean_model",     "geolat",            "geolat",            "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .false., "none", 2
+"ocean_model",     "geolon",            "geolon",            "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .false., "none", 2
+"ocean_model",     "geolat_c",          "geolat_c",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .false., "none", 2
+"ocean_model",     "geolon_c",          "geolon_c",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .false., "none", 2
+"ocean_model",     "geolat_t",          "geolat_t",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .false., "none", 2
+"ocean_model",     "geolon_t",          "geolon_t",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .false., "none", 2
+"generic_cobalt",  "dic_csurf",         "dic_csurf",         "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "dic_deltap",        "dic_deltap",        "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "dic_kw",            "dic_kw",            "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "dic_alpha",         "dic_alpha",         "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "dic_sc_no",         "dic_sc_no",         "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "pco2surf",          "pco2surf",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "o2_csurf",          "o2_csurf",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "o2_deltap",         "o2_deltap",         "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "o2_kw",             "o2_kw",             "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "o2_sc_no",          "o2_sc_no",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "o2_alpha",          "o2_alpha",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "dic_stf",           "dic_stf",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "dic_stf_gas",       "dic_stf_gas",       "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "o2_stf",            "o2_stf",            "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "o2_stf_gas",        "o2_stf_gas",        "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "alk_stf",           "alk_stf",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "fed_stf",           "fed_stf",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "lith_stf",          "lith_stf",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "nh4_stf",           "nh4_stf",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "no3_stf",           "no3_stf",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_o2sat",         "sfc_o2sat",         "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_dic",           "sfc_dic",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_alk",           "sfc_alk",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_fed",           "sfc_fed",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_no3",           "sfc_no3",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_nh4",           "sfc_nh4",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_po4",           "sfc_po4",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_sio4",          "sfc_sio4",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_o2",            "sfc_o2",            "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_chl",           "sfc_chl",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_nsmp",          "sfc_nsmp",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_nlgp",          "sfc_nlgp",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_ndi",           "sfc_ndi",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "intpp",             "intpp",             "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "intpoc",            "intpoc",            "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_ldon",          "sfc_ldon",          "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_sldon",         "sfc_sldon",         "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_srdon",         "sfc_srdon",         "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_cadet_arag",    "sfc_cadet_arag",    "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_cadet_calc",    "sfc_cadet_calc",    "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_htotal",        "sfc_htotal",        "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_chl_smp",       "sfc_chl_smp",       "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_chl_lgp",       "sfc_chl_lgp",       "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_chl_di",        "sfc_chl_di",        "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_irr",           "sfc_irr",           "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_irr_mem",       "sfc_irr_mem",       "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_co3_ion",       "sfc_co3_ion",       "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_co3_sol_arag",  "sfc_co3_sol_arag",  "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+"generic_cobalt",  "sfc_co3_sol_calc",  "sfc_co3_sol_calc",  "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "z_mig_smz",         "z_mig_smz",         "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", "max",   "none", 2
+#"generic_cobalt",  "z_mig_mdz",         "z_mig_mdz",         "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", "max",   "none", 2
+#"generic_cobalt",  "z_mig_lgz",         "z_mig_lgz",         "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", "max",   "none", 2
+"generic_cobalt",  "z_mig_vmmdz",       "z_mig_vmmdz",       "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", "max",   "none", 2
+"generic_cobalt",  "z_mig_vmlgz",       "z_mig_vmlgz",       "hist_control_cobalt_sfc_yearly_%4yr_%2mo", "all", "max",   "none", 2
+
+
+#-------------------------
+# ZOOPLANKTON
+#-------------------------
+"generic_cobalt", "jingest_n_smz_wc_vi", "jingest_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_n_smz_wc_vi", "jmetabo_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_bas_n_smz_wc_vi", "jmetabo_bas_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_dig_n_smz_wc_vi", "jmetabo_dig_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_swm_n_smz_wc_vi", "jmetabo_swm_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jprod_n_smz_wc_vi", "jprod_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jprodpos_n_smz_wc_vi", "jprodpos_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmort_n_smz_wc_vi", "jmort_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jzloss_n_smz_wc_vi", "jzloss_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jhploss_n_smz_wc_vi", "jhploss_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jzoo_n_smz_wc_vi", "jzoo_n_smz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "nsmz_wc_vi", "nsmz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+
+"generic_cobalt", "jingest_n_mdz_wc_vi", "jingest_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_n_mdz_wc_vi", "jmetabo_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_bas_n_mdz_wc_vi", "jmetabo_bas_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_dig_n_mdz_wc_vi", "jmetabo_dig_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_swm_n_mdz_wc_vi", "jmetabo_swm_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jprod_n_mdz_wc_vi", "jprod_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jprodpos_n_mdz_wc_vi", "jprodpos_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmort_n_mdz_wc_vi", "jmort_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jzloss_n_mdz_wc_vi", "jzloss_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jhploss_n_mdz_wc_vi", "jhploss_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jzoo_n_mdz_wc_vi", "jzoo_n_mdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "nmdz_wc_vi", "nmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+
+"generic_cobalt", "jingest_n_lgz_wc_vi", "jingest_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_n_lgz_wc_vi", "jmetabo_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_bas_n_lgz_wc_vi", "jmetabo_bas_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_dig_n_lgz_wc_vi", "jmetabo_dig_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_swm_n_lgz_wc_vi", "jmetabo_swm_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jprod_n_lgz_wc_vi", "jprod_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jprodpos_n_lgz_wc_vi", "jprodpos_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmort_n_lgz_wc_vi", "jmort_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jzloss_n_lgz_wc_vi", "jzloss_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jhploss_n_lgz_wc_vi", "jhploss_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jzoo_n_lgz_wc_vi", "jzoo_n_lgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "nlgz_wc_vi", "nlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+
+"generic_cobalt", "jingest_n_vmmdz_wc_vi", "jingest_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_n_vmmdz_wc_vi", "jmetabo_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_bas_n_vmmdz_wc_vi", "jmetabo_bas_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_dig_n_vmmdz_wc_vi", "jmetabo_dig_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_swm_n_vmmdz_wc_vi", "jmetabo_swm_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jprod_n_vmmdz_wc_vi", "jprod_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jprodpos_n_vmmdz_wc_vi", "jprodpos_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmort_n_vmmdz_wc_vi", "jmort_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jzloss_n_vmmdz_wc_vi", "jzloss_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jhploss_n_vmmdz_wc_vi", "jhploss_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jzoo_n_vmmdz_wc_vi", "jzoo_n_vmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "nvmmdz_wc_vi", "nvmmdz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+
+"generic_cobalt", "jingest_n_vmlgz_wc_vi", "jingest_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_n_vmlgz_wc_vi", "jmetabo_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_bas_n_vmlgz_wc_vi", "jmetabo_bas_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_dig_n_vmlgz_wc_vi", "jmetabo_dig_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmetabo_swm_n_vmlgz_wc_vi", "jmetabo_swm_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jprod_n_vmlgz_wc_vi", "jprod_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jprodpos_n_vmlgz_wc_vi", "jprodpos_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jmort_n_vmlgz_wc_vi", "jmort_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean","none", 2
+"generic_cobalt", "jzloss_n_vmlgz_wc_vi", "jzloss_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jhploss_n_vmlgz_wc_vi", "jhploss_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "jzoo_n_vmlgz_wc_vi", "jzoo_n_vmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+"generic_cobalt", "nvmlgz_wc_vi", "nvmlgz_wc_vi", "hist_zooplankton_dynamics_%4yr_%2mo", "all", "mean", "none", 2
+
+
+#----------------
+# PHYTOPLANKTON
+#----------------
+#"generic_cobalt", "maxgrowth_n_lightlim_sm_wc_vi", "maxgrowth_n_lightlim_sm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+
+#"generic_cobalt", "maxgrowth_n_nutlim_sm_wc_vi", "maxgrowth_n_nutlim_sm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "maxgrowth_n_sm_wc_vi", "maxgrowth_n_sm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jprod_n_sm_wc_vi", "jprod_n_sm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jresp_n_sm_wc_vi", "jresp_n_sm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jvirloss_n_sm_wc_vi", "jvirloss_n_sm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jaggloss_n_sm_wc_vi", "jaggloss_n_sm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jexuloss_n_sm_wc_vi", "jexuloss_n_sm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jzloss_n_sm_wc_vi", "jzloss_n_sm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jphyto_n_sm_wc_vi", "jphyto_n_sm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "nsm_wc_vi", "nsm_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+
+#"generic_cobalt", "maxgrowth_n_lightlim_lg_wc_vi", "maxgrowth_n_lightlim_lg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "maxgrowth_n_nutlim_lg_wc_vi", "maxgrowth_n_nutlim_lg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "maxgrowth_n_lg_wc_vi", "maxgrowth_n_lg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jprod_n_lg_wc_vi", "jprod_n_lg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jresp_n_lg_wc_vi", "jresp_n_lg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jvirloss_n_lg_wc_vi", "jvirloss_n_lg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jaggloss_n_lg_wc_vi", "jaggloss_n_lg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jexuloss_n_lg_wc_vi", "jexuloss_n_lg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jzloss_n_lg_wc_vi", "jzloss_n_lg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jphyto_n_lg_wc_vi", "jphyto_n_lg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "nlg_wc_vi", "nlg_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+
+#"generic_cobalt", "maxgrowth_n_lightlim_di_wc_vi", "maxgrowth_n_lightlim_di_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "maxgrowth_n_nutlim_di_wc_vi", "maxgrowth_n_nutlim_di_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "maxgrowth_n_di_wc_vi", "maxgrowth_n_di_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jprod_n_di_wc_vi", "jprod_n_di_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jresp_n_di_wc_vi", "jresp_n_di_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jvirloss_n_di_wc_vi", "jvirloss_n_di_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jaggloss_n_di_wc_vi", "jaggloss_n_di_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jexuloss_n_di_wc_vi", "jexuloss_n_di_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jzloss_n_di_wc_vi", "jzloss_n_di_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "jphyto_n_di_wc_vi", "jphyto_n_di_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+#"generic_cobalt", "ndi_wc_vi", "ndi_wc_vi", "hist_phytoplankton_dynamics_%4yr_%2mo", "all", .true., "none", 2
+
+
+##
+#------------------------------------------------------------------------------------------
+# COBALT, yearly surface phytoplankton limitation diagnostics (hist_control_cobalt_phytolim_sfc_%4yr)
+#------------------------------------------------------------------------------------------
+#"ocean_model",     "geolat_c",         "geolat_c",          "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",     "geolon_c",         "geolon_c",          "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",     "geolat_t",         "geolat_t",          "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",     "geolon_t",         "geolon_t",          "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .false., "none", 2
+#"generic_cobalt",  "sfc_def_fe_di",    "sfc_def_fe_di",     "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_def_fe_lgp",   "sfc_def_fe_lgp",    "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_def_fe_smp",   "sfc_def_fe_smp",    "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_felim_di",     "sfc_felim_di",      "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_felim_lgp",    "sfc_felim_lgp",     "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_felim_smp",    "sfc_felim_smp",     "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_irrlim_di",    "sfc_irrlim_di",     "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_irrlim_lgp",   "sfc_irrlim_lgp",    "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_irrlim_smp",   "sfc_irrlim_smp",    "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_theta_di",     "sfc_theta_di",      "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_theta_lgp",    "sfc_theta_lgp",     "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_theta_smp",    "sfc_theta_smp",     "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_mu_di",        "sfc_mu_di",         "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_mu_lgp",       "sfc_mu_lgp",        "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_mu_smp",       "sfc_mu_smp",        "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_nh4lim_di",    "sfc_nh4lim_di",     "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_nh4lim_lgp",   "sfc_nh4lim_lgp",    "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_nh4lim_smp",   "sfc_nh4lim_smp",    "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_no3lim_di",    "sfc_no3lim_di",     "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_no3lim_lgp",   "sfc_no3lim_lgp",    "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_no3lim_smp",   "sfc_no3lim_smp",    "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_po4lim_di",    "sfc_po4lim_di",     "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_po4lim_lgp",   "sfc_po4lim_lgp",    "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_po4lim_smp",   "sfc_po4lim_smp",    "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_silim_Lg",     "sfc_silim_Lg",      "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_q_fe_2_n_di",  "sfc_q_fe_2_n_di",   "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_q_fe_2_n_lgp", "sfc_q_fe_2_n_lgp",  "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt",  "sfc_q_fe_2_n_smp", "sfc_q_fe_2_n_smp",  "hist_control_cobalt_phytolim_sfc_%4yr_%2mo", "all", .true.,  "none", 2
+#
+#------------------------------------------------------------------------------------------
+# COBALT, yearly 3D phytoplankton diagnostics (hist_control_cobalt_phytolim_3d_yearly_%4yr)
+#------------------------------------------------------------------------------------------
+#"ocean_model",       "geolat_c",    "geolat_c",    "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",       "geolon_c",    "geolon_c",    "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",       "geolat_t",    "geolat_t",    "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .false., "none", 2
+#"ocean_model",       "geolon_t",    "geolon_t",    "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .false., "none", 2
+#"generic_cobalt_z",  "expkT",       "expkT",       "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "def_fe_Di",   "def_fe_Di",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "def_fe_Lg",   "def_fe_Lg",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "def_fe_Sm",   "def_fe_Sm",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "felim_Di",    "felim_Di",    "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "felim_Lg",    "felim_Lg",    "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "felim_Sm",    "felim_Sm",    "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "irrlim_Di",   "irrlim_Di",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "irrlim_Lg",   "irrlim_Lg",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "irrlim_Sm",   "irrlim_Sm",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "theta_Di",    "theta_Di",    "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "theta_Lg",    "theta_Lg",    "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "theta_Sm",    "theta_Sm",    "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "mu_Di",       "mu_Di",       "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "mu_Lg",       "mu_Lg",       "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "mu_Sm",       "mu_Sm",       "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "nh4lim_Lg",   "nh4lim_Lg",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "nh4lim_Sm",   "nh4lim_Sm",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "no3lim_Lg",   "no3lim_Lg",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "no3lim_Sm",   "no3lim_Sm",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "po4lim_Di",   "po4lim_Di",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "po4lim_Lg",   "po4lim_Lg",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "po4lim_Sm",   "po4lim_Sm",   "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#"generic_cobalt_z",  "irr_mix",     "irr_mix",     "hist_control_cobalt_phytolim_3d_yearly_%4yr_%2mo", "all", .true.,  "none", 2
+#
+
+
+#===================================================================
+# BIOLOGY - DVM
+#===================================================================
+
+#------------------------------------------------------------------------------------------
+# Diurnal (hist_control_cobalt_dvm_diurnal_%4yr)
+#------------------------------------------------------------------------------------------
+
+#"generic_cobalt_z",  "nvmmdz",       "nvmmdz",        "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"generic_cobalt_z",  "nvmlgz",       "nvmlgz",        "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"generic_cobalt_z",  "nvmmdz_gut",   "nvmmdz_gut",    "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"generic_cobalt_z",  "nvmlgz_gut",   "nvmlgz_gut",    "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"generic_cobalt_z",  "nvmmdz_met",   "nvmmdz_met",    "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"generic_cobalt_z",  "nvmlgz_met",   "nvmlgz_met",    "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"generic_cobalt_z",  "vmove_vmMdz",  "vmove_vmMdz",   "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"generic_cobalt_z",  "vmove_vmLgz",  "vmove_vmLgz",   "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"generic_cobalt_z",  "irr_inst",     "irr_inst",      "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"generic_cobalt_z",  "hp_vis_lim",   "hp_vis_lim"     "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"generic_cobalt_z",  "chl",          "chl",           "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+#"ocean_model",       "SW",           "SW",            "hist_control_cobalt_dvm_diurnal_%4yr_%2mo", "all", "diurnal24", "none", 2
+
+#------------------------------------------------------------------------------------------
+# Daily (hist_control_cobalt_dvm_daily_%4yr)
+#------------------------------------------------------------------------------------------
+
+#"generic_cobalt_z",  "nvmmdz",           "nvmmdz",             "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+#"generic_cobalt_z",  "nvmlgz",           "nvmlgz",             "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+
+#"generic_cobalt_z", "jprod_nvmMdz",      "jprod_nvmMdz",       "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+#"generic_cobalt_z", "jprod_nvmLgz",      "jprod_nvmLgz",       "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+#"generic_cobalt_z", "jprod_nh4_vmMdz",   "jprod_nh4_vmMdz",    "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+#"generic_cobalt_z", "jprod_nh4_vmLgz",   "jprod_nh4_vmLgz",    "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+#"generic_cobalt_z", "jmetabo_nvmMdz",    "jmetabo_nvmMdz",     "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+#"generic_cobalt_z", "jmetabo_nvmLgz",    "jmetabo_nvmLgz",     "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+#"generic_cobalt_z", "jingest_n_vmMdz",   "jingest_n_vmMdz",    "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+#"generic_cobalt_z", "jingest_n_vmLgz",   "jingest_n_vmLgz",    "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+
+#"generic_cobalt_z", "jprod_ndet",        "jprod_ndet",         "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+#"generic_cobalt_z", "jprod_ndet_vmMdz",  "jprod_ndet_vmMdz",   "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+#"generic_cobalt_z", "jprod_ndet_vmLgz",  "jprod_ndet_vmLgz",   "hist_control_cobalt_dvm_daily_%4yr_%2mo", "all", "mean", "none", 2
+
+#------------------------------------------------------------------------------------------
+# COBALT, zooplankton dynamics
+#------------------------------------------------------------------------------------------
+
+#"ocean_model",     "thkcello",   "thkcello",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#"generic_cobalt",  "nmdz",     "nmdz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "nlgz",     "nlgz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "nvmmdz",   "nvmmdz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "nvmlgz",   "nvmlgz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#"generic_cobalt",  "jnmdzc",     "jnmdzc",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jnlgzc",     "jnlgzc",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jnvmmdzc",   "jnvmmdzc",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jnvmlgzc",   "jnvmlgzc",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#"generic_cobalt",  "jprod_nMdz",     "jprod_nMdz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jprod_nLgz",     "jprod_nLgz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jprod_nvmMdz",   "jprod_nvmMdz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jprod_nvmLgz",   "jprod_nvmLgz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#"generic_cobalt",  "jzloss_n_Mdz",     "jzloss_n_Mdz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jzloss_n_Lgz",     "jzloss_n_Lgz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jzloss_n_vmMdz",   "jzloss_n_vmMdz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jzloss_n_vmLgz",   "jzloss_n_vmLgz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#"generic_cobalt",  "jhploss_n_Mdz",     "jhploss_n_Mdz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jhploss_n_Lgz",     "jhploss_n_Lgz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jhploss_n_vmMdz",   "jhploss_n_vmMdz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jhploss_n_vmLgz",   "jhploss_n_vmLgz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#"generic_cobalt",  "jingest_n_Mdz",     "jingest_n_Mdz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jingest_n_Lgz",     "jingest_n_Lgz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jingest_n_vmMdz",   "jingest_n_vmMdz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jingest_n_vmLgz",   "jingest_n_vmLgz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#"generic_cobalt",  "jingest_lim_n_Mdz",     "jingest_lim_n_Mdz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jingest_lim_n_Lgz",     "jingest_lim_n_Lgz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jingest_lim_n_vmMdz",   "jingest_lim_n_vmMdz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jingest_lim_n_vmLgz",   "jingest_lim_n_vmLgz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#"generic_cobalt",  "jmetabo_nMdz",     "jmetabo_nMdz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jmetabo_nLgz",     "jmetabo_nLgz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jmetabo_nvmMdz",   "jmetabo_nvmMdz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "jmetabo_nvmLgz",   "jmetabo_nvmLgz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#"generic_cobalt",  "temp_lim_Mdz",     "temp_lim_Mdz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "temp_lim_Lgz",     "temp_lim_Lgz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "temp_lim_vmMdz",   "temp_lim_vmMdz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "temp_lim_vmLgz",   "temp_lim_vmLgz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+#"generic_cobalt",  "o2lim_Mdz",     "o2lim_Mdz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "o2lim_Lgz",     "o2lim_Lgz",     "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "o2lim_vmMdz",   "o2lim_vmMdz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+#"generic_cobalt",  "o2lim_vmLgz",   "o2lim_vmLgz",   "hist_control_zooplankton_dyn_yearly_%4yr_%2mo", "all", "mean",  "none", 2
+
+
+#==========================================================================================
+# BUDGETS
+#==========================================================================================
+#
+# -------------------------------------------------------------------------------------------
+# Yearly Temp Budget (hist_control_diagz_temp_yearly_%4yr)
+# -------------------------------------------------------------------------------------------
+#"ocean_model",    "geolat",                           "geolat",                             "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",    "geolon",                           "geolon",                             "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",    "geolat_c",                         "geolat_c",                           "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",    "geolon_c",                         "geolon_c",                           "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",    "geolat_u",                         "geolat_u",                           "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",    "geolon_u",                         "geolon_u",                           "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",    "geolat_v",                         "geolat_v",                           "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",    "geolon_v",                         "geolon_v",                           "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model_z",  "T_tendency",                        "T_tendency",                        "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",  "T_advectionc_xy",                   "T_advectionc_xy",                   "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",  "T_advectionc_x",                    "T_advectionc_x",                    "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",  "T_advectionc_y",                    "T_advectionc_y",                    "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",  "T_tendency_vert_remap",             "T_tendency_vert_remap",             "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",  "T_dfxy_conc_tendency",              "T_dfxy_conc_tendency",              "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",  "diabatic_diff_temp_tendency",       "diabatic_diff_temp_tendency",       "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",  "boundary_forcing_temp_tendency",    "boundary_forcing_temp_tendency",    "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",    "Th_tendency_2d",                    "Th_tendency_2d",                    "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",    "T_advection_xy_2d",                 "T_advection_xy_2d",                 "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",    "Th_tendency_vert_remap_2d",         "Th_tendency_vert_remap_2d",         "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",    "diabatic_heat_tendency_2d",         "diabatic_heat_tendency_2d",         "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",    "T_dfxy_cont_tendency_2d",           "T_dfxy_cont_tendency_2d",           "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",    "boundary_forcing_heat_tendency_2d", "boundary_forcing_heat_tendency_2d", "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",    "net_heat_surface",                  "net_heat_surface",                  "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",    "heat_added",                        "heat_added",                        "hist_control_diagz_temp_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#
+#-------------------------------------------------------------------------------------------
+# Yearly Salt Budget (hist_control_diagz_salt_yearly_%4yr)
+#-------------------------------------------------------------------------------------------
+#"ocean_model",     "geolat",                            "geolat",                            "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",     "geolon",                            "geolon",                            "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",     "geolat_c",                          "geolat_c",                          "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",     "geolon_c",                          "geolon_c",                          "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",     "geolat_u",                          "geolat_u",                          "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",     "geolon_u",                          "geolon_u",                          "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",     "geolat_v",                          "geolat_v",                          "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model",     "geolon_v",                          "geolon_v",                          "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "none", "none", 2
+#"ocean_model_z",   "S_tendency",                        "S_tendency",                        "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",   "S_advectionc_xy",                   "S_advectionc_xy",                   "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",   "S_advectionc_x",                    "S_advectionc_x",                    "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",   "S_advectionc_y",                    "S_advectionc_y",                    "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",   "S_tendency_vert_remap",             "S_tendency_vert_remap",             "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",   "S_dfxy_conc_tendency",              "S_dfxy_conc_tendency",              "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",   "diabatic_diff_saln_tendency",       "diabatic_diff_saln_tendency",       "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",   "boundary_forcing_saln_tendency",    "boundary_forcing_saln_tendency",    "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",     "Sh_tendency_2d",                    "Sh_tendency_2d",                    "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",     "S_advection_xy_2d",                 "S_advection_xy_2d",                 "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",     "Sh_tendency_vert_remap_2d",         "Sh_tendency_vert_remap_2d",         "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",     "diabatic_salt_tendency_2d",         "diabatic_salt_tendency_2d",         "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",     "S_dfxy_cont_tendency_2d",           "S_dfxy_cont_tendency_2d",           "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",     "boundary_forcing_salt_tendency_2d", "boundary_forcing_salt_tendency_2d", "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+# Ignored by GFDL with note - see salt_flux in dynamics2d.nc:
+#"ocean_model",     "salt_flux",                         "salt_flux",                         "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",     "salt_flux_added",                   "salt_flux_added",                   "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model",     "salt_flux_in",                      "salt_flux_in",                      "hist_control_diagz_salt_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#-------------------------------------------------------------------------------------------
+# DOC Budget (hist_control_diagz_doc_yearly_%4yr)
+#-------------------------------------------------------------------------------------------
+#"ocean_model_z",      "sldon",                       "sldon",                       "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "sldon_post_horzn",            "sldon_post_horzn",            "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "sldon_tendency",              "sldon_tendency",              "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "sldon_advectionc_xy",         "sldon_advectionc_xy",         "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "sldon_advectionc_x",          "sldon_advectionc_x",          "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "sldon_advectionc_y",          "sldon_advectionc_y",          "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "sldon_tendency_vert_remap",   "sldon_tendency_vert_remap",   "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "sldon_diffusionc_xy",         "sldon_diffusionc_xy",         "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "sldon_vdiffusec_impl",        "sldon_vdiffusec_impl",        "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jsldonc",                     "jsldonc",                     "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "sldon_boundary_forcing_tend", "sldon_boundary_forcing_tend", "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"ocean_model_z",      "ldon",                        "ldon",                        "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ldon_post_horzn",             "ldon_post_horzn",             "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ldon_tendency",               "ldon_tendency",               "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ldon_advectionc_xy",          "ldon_advectionc_xy",          "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ldon_advectionc_x",           "ldon_advectionc_x",           "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ldon_advectionc_y",           "ldon_advectionc_y",           "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ldon_tendency_vert_remap",    "ldon_tendency_vert_remap",    "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ldon_diffusionc_xy",          "ldon_diffusionc_xy",          "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "ldon_vdiffusec_impl",         "ldon_vdiffusec_impl",         "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jldonc",                      "jldonc",                      "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "ldon_boundary_forcing_tend",  "ldon_boundary_forcing_tend",  "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"ocean_model_z",      "srdon",                       "srdon",                       "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "srdon_post_horzn",            "srdon_post_horzn",            "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "srdon_tendency",              "srdon_tendency",              "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "srdon_advectionc_xy",         "srdon_advectionc_xy",         "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "srdon_advectionc_x",          "srdon_advectionc_x",          "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "srdon_advectionc_y",          "srdon_advectionc_y",          "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "srdon_tendency_vert_remap",   "srdon_tendency_vert_remap",   "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "srdon_diffusionc_xy",         "srdon_diffusionc_xy",         "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "srdon_vdiffusec_impl",        "srdon_vdiffusec_impl",        "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jsrdonc",                     "jsrdonc",                     "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "srdon_boundary_forcing_tend", "srdon_boundary_forcing_tend", "hist_control_diagz_doc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+
+#-------------------------------------------------------------------------------------------
+#  POC Budget (hist_control_diagz_poc_yearly_%4yr)
+#-------------------------------------------------------------------------------------------
+#"ocean_model_z",      "ndet",                       "ndet",                       "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ndet_post_horzn",            "ndet_post_horzn",            "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ndet_tendency",              "ndet_tendency",              "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ndet_advectionc_xy",         "ndet_advectionc_xy",         "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ndet_advectionc_x",          "ndet_advectionc_x",          "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ndet_advectionc_y",          "ndet_advectionc_y",          "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ndet_tendency_vert_remap",   "ndet_tendency_vert_remap",   "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "ndet_diffusionc_xy",         "ndet_diffusionc_xy",         "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "ndet_vdiffusec_impl",        "ndet_vdiffusec_impl",        "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "ndet_vert_sinkingc",         "ndet_vert_sinkingc",         "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "ndet_vert_diffusionc",       "ndet_vert_diffusionc",       "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jndetc",                     "jndetc",                     "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "ndet_boundary_forcing_tend", "ndet_boundary_forcing_tend", "hist_control_diagz_poc_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#-------------------------------------------------------------------------------------------
+# DIC Budget (hist_control_diagz_dic_yearly_%4yr)
+#-------------------------------------------------------------------------------------------
+#"ocean_model_z",      "dic",                       "dic",                         "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "dic_post_horzn",            "dic_post_horzn",              "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "dic_tendency",              "dic_tendency",                "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "dic_advectionc_xy",         "dic_advectionc_xy",           "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "dic_advectionc_x",          "dic_advectionc_x",            "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "dic_advectionc_y",          "dic_advectionc_y",            "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "dic_tendency_vert_remap",   "dic_tendency_vert_remap",     "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "dic_diffusionc_xy",         "dic_diffusionc_xy",           "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "dic_vdiffusec_impl",        "dic_vdiffusec_impl",          "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jdicc",                     "jdicc",                       "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "dic_boundary_forcing_tend", "dic_boundary_forcing_tend",   "hist_control_diagz_dic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+
+#-------------------------------------------------------------------------------------------
+# PIC Budget (hist_control_diagz_pic_yearly_%4yr)
+#-------------------------------------------------------------------------------------------
+#"ocean_model_z",      "cadet_calc",                       "cadet_calc",                       "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_calc_post_horzn",            "cadet_calc_post_horzn",            "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_calc_tendency",              "cadet_calc_tendency",              "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_calc_advectionc_xy",         "cadet_calc_advectionc_xy",         "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_calc_advectionc_x",          "cadet_calc_advectionc_x",          "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_calc_advectionc_y",          "cadet_calc_advectionc_y",          "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_calc_tendency_vert_remap",   "cadet_calc_tendency_vert_remap",   "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_calc_diffusionc_xy",         "cadet_calc_diffusionc_xy",         "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "cadet_calc_vdiffusec_impl",        "cadet_calc_vdiffusec_impl",        "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jcadet_calcc",                     "jcadet_calcc",                     "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "cadet_calc_boundary_forcing_tend", "cadet_calc_boundary_forcing_tend", "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"ocean_model_z",      "cadet_arag",                       "cadet_arag",                       "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_arag_post_horzn",            "cadet_arag_post_horzn",            "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_arag_tendency",              "cadet_arag_tendency",              "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_arag_advectionc_xy",         "cadet_arag_advectionc_xy",         "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_arag_advectionc_x",          "cadet_arag_advectionc_x",          "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_arag_advectionc_y",          "cadet_arag_advectionc_y",          "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_arag_tendency_vert_remap",   "cadet_arag_tendency_vert_remap",   "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "cadet_arag_diffusionc_xy",         "cadet_arag_diffusionc_xy",         "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "cadet_arag_vdiffusec_impl",        "cadet_arag_vdiffusec_impl",        "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jcadet_aragc",                     "jcadet_aragc",                     "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "cadet_arag_boundary_forcing_tend", "cadet_arag_boundary_forcing_tend", "hist_control_diagz_pic_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+
+#-------------------------------------------------------------------------------------------
+# Carbon Pumps (hist_control_cpump_yearly_%4yr)
+#-------------------------------------------------------------------------------------------
+#"ocean_model_z",      "vert_remap_h",            "vert_remap_h",              "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"ocean_model_z",      "thkcello",                "thkcello",                  "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "rho_dzt",                 "rho_dzt",                   "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+## Soft Tissue pump
+#"generic_cobalt_z",   "jprod_nh4",                "jprod_nh4",                "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nh4_conso",          "jprod_nh4_conso",          "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+# DOC pump
+#"generic_cobalt_z",   "jprod_nh4_Bact",           "jprod_nh4_Bact",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+# POC pump
+#"generic_cobalt_z",   "jremin_ndet",              "jremin_ndet",              "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+# DIC pump
+#"generic_cobalt_z",   "jprod_nh4_resp",           "jprod_nh4_resp",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+# Passive component
+#"generic_cobalt_z",   "jprod_nh4_passive",        "jprod_nh4_passive",        "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ndet_passive",       "jprod_ndet_passive",       "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_don_passive",        "jprod_don_passive",        "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+# Active component
+#"generic_cobalt_z",   "jprod_nh4_active_respiration",  "jprod_nh4_active_respiration",      "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ndet_active_digestion",   "jprod_ndet_active_digestion",       "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ndet_active_mortality",   "jprod_ndet_active_mortality",       "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_don_active_excretion",    "jprod_don_active_excretion",        "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+# DIC Production
+#"generic_cobalt_z",   "jprod_nh4",                "jprod_nh4",                "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nh4_Smz",            "jprod_nh4_Smz",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nh4_Mdz",            "jprod_nh4_Mdz",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nh4_Lgz",            "jprod_nh4_Lgz",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nh4_vmMdz",          "jprod_nh4_vmMdz",          "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nh4_vmLgz",          "jprod_nh4_vmLgz",          "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nh4_Bact",           "jprod_nh4_Bact",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+# Plankton loss
+#"generic_cobalt_z",   "jaggloss_n_Sm",            "jaggloss_n_Sm",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jaggloss_n_Di",            "jaggloss_n_Di",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jaggloss_n_Lg",            "jaggloss_n_Lg",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"generic_cobalt_z",   "jvirloss_n_Sm",            "jvirloss_n_Sm",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jvirloss_n_Di",            "jvirloss_n_Di",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jvirloss_n_Lg",            "jvirloss_n_Lg",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jvirloss_n_Bact",          "jvirloss_n_Bact",          "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+
+#"generic_cobalt_z",   "jexuloss_n_Sm",            "jexuloss_n_Sm",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jexuloss_n_Di",            "jexuloss_n_Di",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jexuloss_n_Lg",            "jexuloss_n_Lg",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"generic_cobalt_z",   "jprod_nsmp",               "jprod_nsmp",               "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ndi",                "jprod_ndi",                "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nlgp",               "jprod_nlgp",               "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "net_phyto_resp",           "net_phyto_resp",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+# POC Production
+#"generic_cobalt_z",   "jndet",                    "jndet",                    "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jremin_ndet",              "jremin_ndet",              "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "det_jzloss_n",             "det_jzloss_n",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "det_jhploss_n",            "det_jhploss_n",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"generic_cobalt_z",   "jprod_ndet",               "jprod_ndet",               "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ndet_Smz",           "jprod_ndet_Smz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ndet_Mdz",           "jprod_ndet_Mdz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ndet_Lgz",           "jprod_ndet_Lgz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ndet_vmMdz",         "jprod_ndet_vmMdz",         "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ndet_vmLgz",         "jprod_ndet_vmLgz",         "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+# DOC Production
+#"generic_cobalt_z",   "juptake_ldon",            "juptake_ldon",               "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "juptake_sldon",           "juptake_sldon",              "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "juptake_srdon",           "juptake_srdon",              "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"generic_cobalt_z",   "jprod_ldon_Smz",          "jprod_ldon_Smz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ldon_Mdz",          "jprod_ldon_Mdz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ldon_Lgz",          "jprod_ldon_Lgz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ldon_vmMdz",        "jprod_ldon_vmMdz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_ldon_vmLgz",        "jprod_ldon_vmLgz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"generic_cobalt_z",   "jprod_sldon_Smz",          "jprod_sldon_Smz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_sldon_Mdz",          "jprod_sldon_Mdz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_sldon_Lgz",          "jprod_sldon_Lgz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_sldon_vmMdz",        "jprod_sldon_vmMdz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_sldon_vmLgz",        "jprod_sldon_vmLgz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"generic_cobalt_z",   "jprod_srdon_Smz",          "jprod_srdon_Smz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_srdon_Mdz",          "jprod_srdon_Mdz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_srdon_Lgz",          "jprod_srdon_Lgz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_srdon_vmMdz",        "jprod_srdon_vmMdz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_srdon_vmLgz",        "jprod_srdon_vmLgz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+# Mecanism attribution
+#"generic_cobalt_z",   "jhploss_n_Smz",            "jhploss_n_Smz",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jhploss_n_Mdz",            "jhploss_n_Mdz",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jhploss_n_Lgz",            "jhploss_n_Lgz",            "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jhploss_n_vmMdz",          "jhploss_n_vmMdz",          "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jhploss_n_vmLgz",          "jhploss_n_vmLgz",          "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"generic_cobalt_z",   "jprod_nSmz",               "jprod_nSmz",               "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nMdz",               "jprod_nMdz",               "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nLgz",               "jprod_nLgz",               "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nvmMdz",             "jprod_nvmMdz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nvmLgz",             "jprod_nvmLgz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jprod_nbact_het",          "jprod_nbact_het",          "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+
+#"generic_cobalt_z",   "jmetabo_nSmz",             "jmetabo_nSmz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jmetabo_nMdz",             "jmetabo_nMdz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jmetabo_nLgz",             "jmetabo_nLgz",             "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jmetabo_nvmMdz",           "jmetabo_nvmMdz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+#"generic_cobalt_z",   "jmetabo_nvmLgz",           "jmetabo_nvmLgz",           "hist_control_cpump_yearly_%4yr_%2mo",  "all",  "mean", "none", 2
+

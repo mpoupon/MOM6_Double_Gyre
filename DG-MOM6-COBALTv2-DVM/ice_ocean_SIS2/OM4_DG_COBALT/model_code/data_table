@@ -1,0 +1,55 @@
+"ATM",  "p_surf"        , "psl"         , "./INPUT/psl_JRA_clim30yrs_monthly_basin_LandMask_gridded.nc"      , "bilinear" , 1.0
+"ATM",  "p_bot"         , "psl"         , "./INPUT/psl_JRA_clim30yrs_monthly_basin_LandMask_gridded.nc"      , "bilinear" , 1.0
+"ATM",  "t_bot"         , "tas"         , "./INPUT/tas_JRA_clim30yrs_monthly_basin_LandMask_gridded.nc"      , "bilinear" , 1.0
+"ATM",  "sphum_bot"     , "huss"        , "./INPUT/huss_JRA_clim30yrs_monthly_basin_LandMask_gridded.nc"     , "bilinear" , 1.0
+"ATM",  "u_bot"         , "uas"         , "./INPUT/uas_JRA_clim30yrs_monthly_basin_LandMask_gridded.nc"      , "bicubic"  , 1.0
+"ATM",  "v_bot"         , "vas"         , "./INPUT/vas_JRA_clim30yrs_monthly_basin_LandMask_gridded.nc"      , "bicubic"  , 1.0
+"ATM",  "z_bot"         , ""            , ""                            , "bilinear"  , 10.0
+"ATM",  "gust"          , ""            , ""                            , "bilinear"  , 1.0e-4
+"ICE",  "lw_flux_dn"    , "rlds"        , "./INPUT/rlds_JRA_clim30yrs_monthly_basin_LandMask_gridded.nc"     , "bilinear" , 1.0
+"ICE",  "sw_flux_vis_dir_dn", "rsds"    , "./INPUT/rsds_JRA_clim30yrs_3h_basin_LandMask_gridded.nc"          , "bilinear" , 0.285
+"ICE",  "sw_flux_vis_dif_dn", "rsds"    , "./INPUT/rsds_JRA_clim30yrs_3h_basin_LandMask_gridded.nc"          , "bilinear" , 0.285
+"ICE",  "sw_flux_nir_dir_dn", "rsds"    , "./INPUT/rsds_JRA_clim30yrs_3h_basin_LandMask_gridded.nc"          , "bilinear" , 0.215
+"ICE",  "sw_flux_nir_dif_dn", "rsds"    , "./INPUT/rsds_JRA_clim30yrs_3h_basin_LandMask_gridded.nc"          , "bilinear" , 0.215
+"ICE",  "lprec"         , "prra"        , "./INPUT/prra_JRA_clim30yrs_monthly_basin_LandMask_gridded.nc"     , "bilinear" , 1.0
+"ICE",  "fprec"         , "prsn"        , "./INPUT/prsn_JRA_clim30yrs_monthly_basin_LandMask_gridded.nc"     , "bilinear" , 1.0
+#"ICE",  "runoff"        , "friver"      , ""                             , "none"  , 1.0
+#"ICE",  "calving"       , "licalvf"     , ""                             , "none"  , 1.0
+"ICE",  "dhdt"          , ""            , ""                             , "none"  , 80.0
+"ICE",  "dedt"          , ""            , ""                             , "none"  , 2.0e-6
+"ICE",  "drdt"          , ""            , ""                             , "none"  , 10.0
+"LND",  "t_surf"        , ""            , ""                             , "none"  , 273.0
+"LND",  "t_ca"          , ""            , ""                             , "none"  , 273.0
+"LND",  "q_ca"          , ""            , ""                             , "none"  , 0.0
+"LND",  "rough_mom"     , ""            , ""                             , "none"  , 0.01
+"LND",  "rough_heat"    , ""            , ""                             , "none"  , 0.1
+"LND",  "albedo"        , ""            , ""                             , "none"  , 0.1
+"LND",  "sphum_surf"    , ""            , ""                             , "none"  , 0.0
+"LND",  "sphum_ca"      , ""            , ""                             , "none"  , 0.0
+"LND",  "t_flux"        , ""            , ""                             , "none"  , 0.0
+"LND",  "sphum_flux"    , ""            , ""                             , "none"  , 0.0
+"LND",  "lw_flux"       , ""            , ""                             , "none"  , 0.0
+"LND",  "sw_flux"       , ""            , ""                             , "none"  , 0.0
+"LND",  "lprec"         , ""            , ""                             , "none"  , 0.0
+"LND",  "fprec"         , ""            , ""                             , "none"  , 0.0
+"LND",  "dhdt"          , ""            , ""                             , "none"  , 5.0
+"LND",  "dedt"          , ""            , ""                             , "none"  , 2e-6
+"LND",  "dedq"          , ""            , ""                             , "none"  , 0.0
+"LND",  "drdt"          , ""            , ""                             , "none"  , 5.0
+"LND",  "drag_q"        , ""            , ""                             , "none"  , 0.0
+"LND",  "p_surf"        , ""            , ""                             , "none"  , 1.e5
+
+### Needed for COBALT ###
+# Atmospheric O2 and CO2
+"ATM",  "o2_flux_pcair_atm"   , ""       , ""                            , "none"  , 0.214
+"ATM",  "co2_flux_pcair_atm"  , ""       , ""                            , "none"  , 375.0e-06
+"ATM",  "co2_bot"             , ""       , ""                            , "none"  , 375.0e-06
+
+# Atmospheric deposition of nutrients
+"OCN",  "dry_dep_fed_flux_ice_ocn"   , "dep_fed"      , "./INPUT/dep_fed_ESM4_clim30yrs_monthly_basin_LandMask_gridded.nc"      , "bilinear"  , -1.0
+"OCN",  "dry_dep_lith_flux_ice_ocn"  , "dep_lith"     , "./INPUT/dep_lith_ESM4_clim30yrs_monthly_basin_LandMask_gridded.nc"     , "bilinear"  , -1.0
+"OCN",  "dry_dep_po4_flux_ice_ocn"   , "dep_po4"      , "./INPUT/dep_po4_ESM4_clim30yrs_monthly_basin_LandMask_gridded.nc"      , "bilinear"  , 0.0
+"OCN",  "wet_dep_no3_flux_ice_ocn"   , "dep_wet_no3"  , "./INPUT/dep_wet_no3_ESM4_clim30yrs_monthly_basin_LandMask_gridded.nc"  , "bilinear"  , -1.0
+"OCN",  "dry_dep_no3_flux_ice_ocn"   , "dep_dry_no3"  , "./INPUT/dep_dry_no3_ESM4_clim30yrs_monthly_basin_LandMask_gridded.nc"  , "bilinear"  , -1.0
+"OCN",  "wet_dep_nh4_flux_ice_ocn"   , "dep_wet_nh4"  , "./INPUT/dep_wet_nh4_ESM4_clim30yrs_monthly_basin_LandMask_gridded.nc"  , "bilinear"  , -1.0
+"OCN",  "dry_dep_nh4_flux_ice_ocn"   , "dep_dry_nh4"  , "./INPUT/dep_dry_nh4_ESM4_clim30yrs_monthly_basin_LandMask_gridded.nc"  , "bilinear"  , -1.0

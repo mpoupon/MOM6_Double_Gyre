@@ -1,0 +1,82 @@
+ChangeLog
+
+version 2.3.3, 2016-12-20
+-----------------------------------
+	- changed 'intent(OUT)' to 'intent(IN) to some variables in 2 subroutines in gasx.f90
+	- fixed bug in buffesm.f90 (caused contrib from SiT to be neglected)
+	- added Method of moments to errors.f90  (adds covariance term between input pair)
+	- added uncertainty from total boron to error propgation
+
+version 2.3.2, 2016-08-15
+-----------------------------------
+	- new routines to compute K'(kprime)  and K0 (kzero); phizero revised
+	- modified setup.py & __init__.py ; renamed .travis.yml to travis.yml
+	- moved __init.py to main directory
+
+version 2.3.1, 2016-08-08
+-----------------------------------
+	- fixed packaging_boilerplate files
+	- 'import mocsy' fails due to mocsy/__init__.py file ; thus, moved it to mocsy/tmp directory
+	
+version 2.3, 2016-08-08
+-----------------------------------
+- Addded ability to propagate uncertianties (errors) & compute buffer factors (derivnum & derivauto)
+
+version 2.2.1, 2016-08-06
+-----------------------------------
+- Streamlined directory structure with hope to eventually provide mocsy as a conda package
+- Closely followed efforts of Filipe Fernades (ocepaf on gitub)
+- Other notable changes:
+  * renamed makefile to Makefile and modified it accordingly
+  * added examples in python and fortran; a Juypter Notebook is added thanks to Emilio Mayorga
+
+
+version 2.2, 2016-08-05
+-----------------------------------
+- Added 'solgas' subroutine to compute solubilities (Phi0) of CFC-11, CFC-12, SF6, CO2, and N20
+- Fixed previous small errors in gasex.f90 that prevented compilation
+
+version 2.1.3, 2016-01-19
+-----------------------------------
+- Updated scco2 (Schmidt  number Sc for CO2) to use Wanninkhof (2014) formulationc's of O2
+- Added functions to compute Sc's of O2, CFC11, CFC12, SF6 (sco2, sccfc11, ...)
+
+version 2.1.2, 2016-01-19
+-----------------------------------
+- Added _r4 to some remaining constants in vars.f90
+
+version 2.1.1, 2015-11-20
+-----------------------------------
+- Added _r4 to single-precision temperature-scale conversion constants
+
+version 2.1, 2015-11-20
+-----------------------------------
+- Added Waters et al. (2014) formulation for K1 and K2 (fix to Millero, 2010)
+
+version 2.0.1, 2015-09-15
+-----------------------------------
+- Added ChangeLog file
+- Fixed typo in vars.f90 : "Kf = aKs(1)" ->  "Kf = aKf(1)" ; very small impact (mocsy uses the total H+ scale)
+
+version 2.0, 2015-03-09 (published paper)
+-----------------------------------
+- Version described in Orr et al. (2015)
+- includes fast and accurate pH solver routines from Munhoven
+- uses accurate numerical algorithm for Revelle factor, replacing analytical solution (ignores nutrient alkalinity)
+
+version 1.0, 2014-05-05 (published discussion paper)
+-----------------------------------
+- Version described in Orr et al. (2014)
+
+
+REFERENCES
+
+Millero, F. J.: Carbonate constants for estuarine waters, Mar. Freshwater
+Res., 61, 139–142, doi:10.1071/MF09254, 2010.
+
+Orr, J. C. and Epitalon, J.-M.: Improved routines to model the ocean carbonate system: mocsy 2.0, Geosci. Model Dev., 8, 485-499, doi:10.5194/gmd-8-485-2015, 2015.  
+
+Orr, J. C. and Epitalon, J.-M.: Improved routines to model the ocean carbonate system: mocsy 1.0, Geosci. Model Dev. Discuss., 7, 2877-2902, doi:10.5194/gmdd-7-2877-2014, 2014.  
+
+Waters, J., F. J. Millero, and R. J. Woosley. Corrigendum to “The free proton concentration scale for seawater pH”,[MARCHE: 149 (2013) 8–22]. Marine Chemistry 165 (2014): 66-67.  
+
