@@ -1,7 +1,7 @@
 # MOM6 Double Gyre
 
 This project includes multiple versions of a double-gyre ocean configuration forced by idealized atmospheric conditions and reproducing the physical and biogeochemical dynamics characteristic of the North Atlantic. The physical model used is MOM6 ([Adcroft et al. 2019](
-https://doi.org/10.1029/2019MS001726)) and the biogeochemical module can be used in the original version (COBALTv2, [Stock et al. 2020](https://doi.org/10.1029/2019MS002043)) or in the version including zooplankton vertical migration (COBALTv2-DVM,[Poupon et al. 2025](https://os.copernicus.org/articles/21/851/2025/)). The configuration is available at three different horizontal resolutions (85 km, 9.4 km and 3.1 km).
+https://doi.org/10.1029/2019MS001726)) and the biogeochemical module can be used in the original version (COBALTv2, [Stock et al. 2020](https://doi.org/10.1029/2019MS002043)) or in the version including zooplankton vertical migration (COBALTv2-DVM, [Poupon et al. 2025](https://os.copernicus.org/articles/21/851/2025/)). The configuration is available at three different horizontal resolutions (85 km, 9.4 km and 3.1 km).
 
 **The directories contain:**
 
